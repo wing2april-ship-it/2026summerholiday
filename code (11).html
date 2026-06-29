@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FFF8F0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Coco & Yan 熱辣辣東京放暑假</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#FFF8F0;--s:#FFFFFF;--s2:#FFF5EE;
+  --pk:#FF8FAB;--pk-l:#FFD1DC;--mn:#7ECFB3;--mn-l:#C5E8DB;
+  --lv:#B8A9E8;--lv-l:#DDD5F5;--pc:#FFB4A2;--pc-l:#FFDDD4;
+  --yw:#FFE066;--yw-l:#FFF2B3;--gd:#FFD700;
+  --txt:#4A4158;--txm:#8E8494;--txl:#B5ADB8;
+  --sh:0 4px 20px rgba(74,65,88,.07);--shl:0 12px 40px rgba(74,65,88,.12);
+  --r:20px;--rs:12px;--rx:10px;
+  --d1:#FF6B6B;--d2:#FF8FD1;--d3:#FFD166;--d4:#FF8C42;--d5:#A29BFE;--d6:#55EFC4;--d7:#74B9FF;
+  --gap:12px;--pad:16px;
+}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--txt);font-family:'Noto Sans TC',system-ui,sans-serif;font-weight:400;line-height:1.75;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Fredoka','Noto Sans TC',sans-serif;line-height:1.35}
+a{color:var(--pk);text-decoration:none}
+img,svg{display:block;max-width:100%}
+table{width:100%}
+
+/* Container */
+.container{max-width:940px;margin:0 auto;padding:0 var(--pad)}
+
+/* ═══ NAV ═══ */
+.nav{position:sticky;top:0;z-index:100;background:rgba(255,248,240,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(74,65,88,.06);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.nav::-webkit-scrollbar{display:none}
+.nav-in{display:flex;gap:2px;padding:8px var(--pad);max-width:940px;margin:0 auto;white-space:nowrap}
+.nav a{padding:6px 12px;border-radius:20px;font-size:12px;font-weight:500;color:var(--txm);transition:.25s;flex-shrink:0;min-height:32px;display:flex;align-items:center}
+.nav a:hover,.nav a.active{background:var(--pk-l);color:var(--txt)}
+
+/* ═══ HERO ═══ */
+.hero{position:relative;min-height:min(94vh,800px);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px var(--pad) 80px;overflow:hidden;background:linear-gradient(180deg,#1a0a3e 0%,#3d1a6e 10%,#8b2fa0 22%,#ff4d8a 38%,#ff8c42 54%,#ffe4b5 74%,var(--bg) 100%)}
+.hero-title{font-size:clamp(2rem,7vw,4rem);color:#FFF;text-shadow:0 2px 40px rgba(255,100,140,.5);margin-bottom:6px;position:relative;z-index:2}
+.hero-sub{font-size:clamp(.85rem,2.5vw,1.3rem);color:rgba(255,255,255,.88);font-weight:300;margin-bottom:6px;position:relative;z-index:2}
+.hero-names{font-size:clamp(1rem,3.5vw,1.7rem);font-weight:600;color:#fff;text-shadow:0 2px 20px rgba(255,200,100,.4);margin-bottom:20px;position:relative;z-index:2}
+.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;position:relative;z-index:2}
+.hero-tag{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:30px;font-size:13px;color:#fff;font-weight:500}
+
+/* Fireworks */
+.fw{position:absolute;width:6px;height:6px;border-radius:50%;pointer-events:none;z-index:1}
+.fw1{top:16%;left:12%;animation:fa 2.8s .2s ease-out infinite}
+.fw2{top:22%;left:75%;animation:fb 3.2s 1s ease-out infinite}
+.fw3{top:10%;left:45%;animation:fc 2.5s .6s ease-out infinite}
+.fw4{top:28%;left:90%;animation:fa 3s 1.8s ease-out infinite}
+.fw5{top:6%;left:28%;animation:fb 2.8s 2.2s ease-out infinite}
+.fw6{top:20%;left:55%;animation:fc 3.4s .4s ease-out infinite}
+.fw7{top:32%;left:20%;animation:fa 2.6s 1.4s ease-out infinite}
+.fw8{top:8%;left:68%;animation:fb 3s 2.6s ease-out infinite}
+@keyframes fa{0%{box-shadow:0 0 0 0 var(--gd),0 0 0 0 var(--pk),0 0 0 0 var(--mn),0 0 0 0 var(--lv),0 0 0 0 var(--pc),0 0 0 0 #87CEEB,0 0 0 0 #FF7F7F,0 0 0 0 var(--yw);opacity:1}100%{box-shadow:0 -60px 0 -2px var(--gd),60px 0 0 -2px var(--pk),0 60px 0 -2px var(--mn),-60px 0 0 -2px var(--lv),42px -42px 0 -2px var(--pc),42px 42px 0 -2px #87CEEB,-42px 42px 0 -2px #FF7F7F,-42px -42px 0 -2px var(--yw);opacity:0}}
+@keyframes fb{0%{box-shadow:0 0 0 0 #FF6B8A,0 0 0 0 var(--mn),0 0 0 0 var(--yw),0 0 0 0 var(--lv),0 0 0 0 var(--pc),0 0 0 0 #87CEEB;opacity:1}100%{box-shadow:0 -52px 0 -2px #FF6B8A,52px 0 0 -2px var(--mn),0 52px 0 -2px var(--yw),-52px 0 0 -2px var(--lv),37px -37px 0 -2px var(--pc),-37px 37px 0 -2px #87CEEB;opacity:0}}
+@keyframes fc{0%{box-shadow:0 0 0 0 var(--gd),0 0 0 0 var(--pk),0 0 0 0 #55EFC4,0 0 0 0 var(--lv),0 0 0 0 #87CEEB,0 0 0 0 var(--pc),0 0 0 0 var(--yw);opacity:1}100%{box-shadow:0 -54px 0 -2px var(--gd),54px 0 0 -2px var(--pk),0 54px 0 -2px #55EFC4,-54px 0 0 -2px var(--lv),38px -38px 0 -2px #87CEEB,38px 38px 0 -2px var(--pc),-38px -38px 0 -2px var(--yw);opacity:0}}
+
+/* Sparkles */
+.sp{position:absolute;border-radius:50%;background:#fff;pointer-events:none;z-index:1;animation:tw 2s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.5)}}
+
+/* Shooting stars */
+.shoot{position:absolute;width:4px;height:4px;background:#fff;border-radius:50%;pointer-events:none;z-index:1;opacity:0}
+.shoot::after{content:'';position:absolute;top:0;right:4px;width:80px;height:2px;background:linear-gradient(to left,rgba(255,255,255,.7),transparent);border-radius:2px}
+.sh1{top:12%;right:10%;animation:st1 4s 1s linear infinite}
+.sh2{top:25%;right:30%;animation:st2 5s 3s linear infinite}
+.sh3{top:5%;right:50%;animation:st1 4.5s 5.5s linear infinite}
+@keyframes st1{0%{transform:translate(0,0) rotate(-145deg);opacity:0}5%{opacity:1}60%{opacity:1}100%{transform:translate(-300px,200px) rotate(-145deg);opacity:0}}
+@keyframes st2{0%{transform:translate(0,0) rotate(-140deg);opacity:0}5%{opacity:1}60%{opacity:1}100%{transform:translate(-350px,220px) rotate(-140deg);opacity:0}}
+
+.hero-scroll{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);z-index:2;animation:bob 2.5s ease-in-out infinite}
+.hero-scroll span{display:block;width:24px;height:36px;border:2.5px solid rgba(255,255,255,.5);border-radius:12px;position:relative}
+.hero-scroll span::after{content:'';width:4px;height:9px;background:rgba(255,255,255,.8);border-radius:3px;position:absolute;top:6px;left:50%;transform:translateX(-50%);animation:sd 2.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+@keyframes sd{0%{opacity:1;top:6px}100%{opacity:0;top:20px}}
+
+/* ═══ SECTIONS ═══ */
+section{padding:48px 0}
+.sl{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--pk);text-transform:uppercase;letter-spacing:.12em;margin-bottom:8px}
+.st{font-size:clamp(1.4rem,4vw,2.1rem);margin-bottom:5px}
+.sd{color:var(--txm);font-size:14px;max-width:620px;margin-bottom:24px}
+.div{height:1px;background:linear-gradient(90deg,transparent,var(--pk-l),var(--lv-l),var(--mn-l),transparent);margin:8px 0}
+
+/* ═══ OVERVIEW ═══ */
+.ov-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:var(--gap)}
+.ov{background:var(--s);border-radius:var(--r);padding:18px;border:1px solid rgba(74,65,88,.05);box-shadow:var(--sh);transition:transform .3s,box-shadow .3s;text-decoration:none;color:var(--txt);display:block;position:relative;overflow:hidden}
+@media(hover:hover){.ov:hover{transform:translateY(-4px);box-shadow:var(--shl)}}
+.ov::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--c,var(--pk))}
+.ov-d{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c,var(--pk));margin-bottom:2px}
+.ov-dt{font-size:11px;color:var(--txm);margin-bottom:6px}
+.ov-e{font-size:28px;margin-bottom:4px}
+.ov-t{font-family:'Fredoka','Noto Sans TC',sans-serif;font-size:15px;font-weight:600;margin-bottom:2px}
+.ov-ds{font-size:12px;color:var(--txm);line-height:1.5}
+
+/* ═══ INFO CARDS ═══ */
+.ir{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap)}
+.ic{background:var(--s);border-radius:var(--r);padding:20px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04);position:relative;overflow:hidden}
+.ic::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--pk),var(--lv),var(--mn))}
+.il{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--txm);text-transform:uppercase;margin-bottom:5px}
+.iv{font-size:22px;font-weight:700;font-family:'Fredoka',sans-serif;margin-bottom:3px}
+.id{font-size:13px;color:var(--txm);line-height:1.7}.id strong{color:var(--txt);font-weight:600}
+
+/* Hotel address */
+.hotel-addr{background:var(--s);border-radius:var(--rs);padding:16px 20px;margin-top:14px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.hotel-addr h4{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.addr-row{font-size:13px;color:var(--txm);padding:2px 0;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.addr-row .lang{font-size:10px;font-weight:600;color:var(--lv);background:var(--lv-l);padding:1px 7px;border-radius:8px;flex-shrink:0}
+.addr-row a{color:var(--pk);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+
+/* ═══ TAGS ═══ */
+.tags{display:flex;flex-wrap:wrap;gap:5px;margin:8px 0}
+.tag{display:inline-flex;align-items:center;gap:3px;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:500;background:var(--pk-l);color:var(--txt)}
+.tag.mn{background:var(--mn-l)}.tag.lv{background:var(--lv-l)}.tag.yw{background:var(--yw-l)}.tag.pc{background:var(--pc-l)}.tag.hot{background:rgba(255,107,107,.15);color:#d44}
+
+/* ═══ DAY CARDS ═══ */
+.dc{background:var(--s);border-radius:var(--r);overflow:hidden;margin-bottom:12px;border:1px solid rgba(74,65,88,.04);box-shadow:var(--sh);transition:box-shadow .3s}
+.dc:hover{box-shadow:var(--shl)}
+.dh{padding:16px 18px;cursor:pointer;display:flex;align-items:center;gap:14px;user-select:none;-webkit-user-select:none;transition:background .2s;-webkit-tap-highlight-color:transparent}
+.dh:hover{background:var(--s2)}
+.dn{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-size:20px;font-weight:700;color:#fff;flex-shrink:0}
+.di{flex:1;min-width:0}.di h3{font-size:15px;font-family:'Noto Sans TC',sans-serif;font-weight:700;line-height:1.3}.di span{font-size:12px;color:var(--txm);line-height:1.3}
+.da{font-size:20px;color:var(--txm);transition:transform .35s;flex-shrink:0}.dc.open .da{transform:rotate(180deg)}
+.db{max-height:0;overflow:hidden;transition:max-height .55s cubic-bezier(.4,0,.2,1)}.dc.open .db{max-height:8000px}
+.dbc{padding:0 18px 18px}
+
+/* Split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.sb{background:var(--s2);border-radius:var(--rs);padding:14px}
+.sb h4{font-size:13px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:6px}
+.sb li{font-size:12px;color:var(--txm);padding:2px 0;list-style:none;padding-left:14px;position:relative}
+.sb li::before{content:'♡';position:absolute;left:0;color:var(--pk);font-size:10px}
+
+/* Together box */
+.together{background:linear-gradient(135deg,rgba(255,143,171,.08),rgba(184,169,232,.08));border:1.5px dashed var(--pk-l);border-radius:var(--rs);padding:14px;margin:12px 0}
+.together h4{font-size:13px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+
+/* Timeline */
+.tl{margin:12px 0;position:relative;padding-left:28px}
+.tl::before{content:'';position:absolute;left:8px;top:10px;bottom:10px;width:2px;background:linear-gradient(var(--c,var(--pk)),var(--lv-l));border-radius:2px}
+.ti{position:relative;margin-bottom:16px}.ti:last-child{margin-bottom:0}
+.ti::before{content:'';position:absolute;left:-24px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--c,var(--pk));border:3px solid var(--bg);z-index:1;box-shadow:0 0 0 2px var(--c,var(--pk))}
+.tt{font-size:12px;font-weight:700;color:var(--c,var(--pk));margin-bottom:1px;font-family:'Fredoka',sans-serif}
+.tn{font-size:14px;font-weight:600;margin-bottom:2px}
+.tds{font-size:12px;color:var(--txm);line-height:1.6}
+
+/* Table */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:10px 0;border-radius:var(--rs)}
+.rt{border-collapse:collapse;font-size:13px;min-width:300px}
+.rt th{text-align:left;padding:7px 10px;color:var(--txm);font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;border-bottom:2px solid var(--pk-l)}
+.rt td{padding:7px 10px;border-bottom:1px solid rgba(74,65,88,.05)}.rt tr:last-child td{border-bottom:none}
+
+/* ═══ WEATHER ═══ */
+.wx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--gap)}
+.wx{background:var(--s);border-radius:var(--rs);padding:18px;text-align:center;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.wx-i{font-size:32px;margin-bottom:4px}.wx-v{font-size:24px;font-weight:700;font-family:'Fredoka',sans-serif}.wx-l{font-size:12px;color:var(--txm)}
+
+/* ═══ COLOR STYLE ═══ */
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
+.cc{background:var(--s);border-radius:var(--r);padding:18px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.cc h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:3px}
+.cc .sub{font-size:11px;color:var(--txm);margin-bottom:10px}
+.sw{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
+.swc{width:32px;height:32px;border-radius:8px;border:2px solid rgba(255,255,255,.8);box-shadow:0 2px 6px rgba(0,0,0,.1);position:relative}
+.swc-l{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:8px;color:var(--txm);white-space:nowrap}
+.cc ul{list-style:none;font-size:12px;color:var(--txm)}
+.cc li{padding:2px 0 2px 16px;position:relative}.cc li::before{content:'✦';position:absolute;left:0;color:var(--pk);font-size:9px}
+
+/* ═══ FOOD ═══ */
+.food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap)}
+.food-card{background:var(--s);border-radius:var(--rs);padding:18px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.food-card h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
+.food-card .fc-sub{font-size:11px;color:var(--txm);margin-bottom:8px}
+.food-item{display:flex;gap:8px;padding:6px 0;border-bottom:1px solid rgba(74,65,88,.04);font-size:12px;align-items:baseline}
+.food-item:last-child{border-bottom:none}
+.food-name{font-weight:600;color:var(--txt);flex-shrink:0}
+.food-detail{color:var(--txm)}
+
+/* ═══ BUY ═══ */
+.buy-cat{margin-bottom:20px}.buy-cat h4{font-size:14px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.buy-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:8px}
+.buy-item{background:var(--s);border-radius:var(--rx);padding:12px 14px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04);display:flex;gap:8px;align-items:flex-start}
+.buy-emoji{font-size:22px;flex-shrink:0}
+.buy-info{flex:1}.buy-name{font-size:13px;font-weight:600;margin-bottom:1px}.buy-desc{font-size:11px;color:var(--txm);line-height:1.5}
+.buy-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:8px;margin-top:3px;background:var(--yw-l);color:#9a7b00}
+
+/* ═══ CHECKLIST ═══ */
+.cbg{margin-bottom:18px}.cbg h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ci{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--s);border-radius:var(--rx);margin-bottom:5px;cursor:pointer;transition:background .2s;border:1px solid rgba(74,65,88,.04);-webkit-tap-highlight-color:transparent;min-height:44px}
+.ci:hover{background:var(--s2)}
+.ck{appearance:none;-webkit-appearance:none;width:22px;height:22px;border:2.5px solid var(--lv-l);border-radius:7px;flex-shrink:0;cursor:pointer;position:relative;transition:.2s}
+.ck:checked{background:var(--mn);border-color:var(--mn)}
+.ck:checked::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff}
+.ct{font-size:13px;flex:1}.ct.done{text-decoration:line-through;color:var(--txl)}
+
+/* ═══ TIPS ═══ */
+.tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--gap)}
+.tc{background:var(--s);border-radius:var(--rs);padding:18px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.tc h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:6px;display:flex;align-items:center;gap:6px}
+.tc ul{list-style:none;font-size:12px;color:var(--txm)}.tc li{padding:2px 0 2px 16px;position:relative}.tc li::before{content:'→';position:absolute;left:0;color:var(--mn);font-weight:600}
+
+/* ═══ REVEAL ═══ */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}.rv.vis{opacity:1;transform:translateY(0)}
+.rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
+
+/* ═══ FOOTER ═══ */
+footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65,88,.06);color:var(--txm);font-size:12px}
+footer span{color:var(--pk)}
+
+/* ═══ SCROLLBAR ═══ */
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--pk-l);border-radius:3px}
+
+/* ═══ RESPONSIVE ═══ */
+@media(max-width:768px){
+  :root{--pad:14px;--gap:10px;--r:16px;--rs:10px}
+  section{padding:36px 0}
+  .ov-grid{grid-template-columns:repeat(2,1fr)}
+  .ir{grid-template-columns:1fr}
+  .split{grid-template-columns:1fr}
+  .dh{padding:14px;gap:12px}
+  .dn{width:42px;height:42px;border-radius:12px;font-size:18px}
+  .di h3{font-size:14px}
+  .dbc{padding:0 14px 14px}
+  .hero{min-height:min(88vh,700px);padding:60px var(--pad) 70px}
+  .nav a{font-size:11px;padding:5px 10px}
+}
+@media(max-width:420px){
+  .ov-grid{grid-template-columns:1fr 1fr}
+  .ov{padding:14px}
+  .ov-e{font-size:24px}
+  .ov-t{font-size:13px}
+  .ov-ds{font-size:11px}
+  .hero-tags{gap:6px}
+  .hero-tag{font-size:11px;padding:5px 10px}
+  .split{gap:8px}
+  .sb{padding:12px}
+}
+@media(min-width:769px){
+  .ov-grid{grid-template-columns:repeat(4,1fr)}
+  .cg{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:1024px){
+  :root{--pad:24px}
+  .nav-in{padding:10px var(--pad)}
+}
+
+/* Reduce motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:0s!important;transition-duration:0s!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="nav-in">
+<a href="#top">首頁</a><a href="#flights">航班</a><a href="#hotel">酒店</a>
+<a href="#day1">D1</a><a href="#day2">D2</a><a href="#day3">D3</a><a href="#day4">D4</a><a href="#day5">D5</a><a href="#day6">D6</a><a href="#day7">D7</a>
+<a href="#food">美食</a><a href="#shop">必買</a><a href="#weather">天氣</a><a href="#style">穿搭</a><a href="#ck">Checklist</a>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="fw fw1"></div><div class="fw fw2"></div><div class="fw fw3"></div><div class="fw fw4"></div>
+  <div class="fw fw5"></div><div class="fw fw6"></div><div class="fw fw7"></div><div class="fw fw8"></div>
+  <div class="shoot sh1"></div><div class="shoot sh2"></div><div class="shoot sh3"></div>
+  <div class="sp" style="top:15%;left:22%;width:4px;height:4px"></div>
+  <div class="sp" style="top:28%;left:65%;width:5px;height:5px;animation-delay:.5s"></div>
+  <div class="sp" style="top:10%;left:52%;width:3px;height:3px;animation-delay:1s"></div>
+  <div class="sp" style="top:35%;left:38%;width:4px;height:4px;animation-delay:1.4s"></div>
+  <div class="sp" style="top:20%;left:80%;width:3px;height:3px;animation-delay:.8s"></div>
+  <div class="sp" style="top:40%;left:15%;width:5px;height:5px;animation-delay:1.8s"></div>
+  <div class="sp" style="top:8%;left:90%;width:4px;height:4px;animation-delay:.3s"></div>
+  <div class="sp" style="top:32%;left:50%;width:3px;height:3px;animation-delay:2.2s"></div>
+  <div class="sp" style="top:18%;left:72%;width:6px;height:6px;animation-delay:1.2s"></div>
+  <div class="sp" style="top:6%;left:40%;width:4px;height:4px;animation-delay:2.5s"></div>
+
+  <h1 class="hero-title">熱辣辣東京放暑假 🌸</h1>
+  <p class="hero-sub">aka 萬張美照挑戰 📸✨</p>
+  <div class="hero-names"><span>🎀 Coco</span><span>✨ & ✨</span><span>🌸 Yan</span></div>
+  <div class="hero-tags">
+    <span class="hero-tag">2026.08.21 – 08.27</span>
+    <span class="hero-tag">7日6夜</span>
+    <span class="hero-tag">2人同行</span>
+    <span class="hero-tag">🏨 淺草橋海茵娜酒店</span>
+  </div>
+  <div class="hero-scroll"><span></span></div>
+</header>
+
+<main>
+
+<!-- OVERVIEW -->
+<section id="overview"><div class="container">
+  <div class="sl">✈️ 行程總覽</div>
+  <h2 class="st">7日東京GO! 🗼</h2>
+  <p class="sd">每一天都有主題，每一刻都係回憶 ✨</p>
+  <div class="ov-grid">
+    <a class="ov rv" href="#day1" style="--c:var(--d1)"><div class="ov-d">Day 1</div><div class="ov-dt">8/21 五</div><div class="ov-e">✈️</div><div class="ov-t">抵達日</div><div class="ov-ds">到埗＋Donki掃貨</div></a>
+    <a class="ov rv rv1" href="#day2" style="--c:var(--d2)"><div class="ov-d">Day 2</div><div class="ov-dt">8/22 六</div><div class="ov-e">🛍️</div><div class="ov-t">池袋Shopping + Chiikawa</div><div class="ov-ds">Yan行街Facial／Coco買BL／一齊去Chiikawa PARCO</div></a>
+    <a class="ov rv rv2" href="#day3" style="--c:var(--d3)"><div class="ov-d">Day 3</div><div class="ov-dt">8/23 日</div><div class="ov-e">🧸</div><div class="ov-t">Chiikawa + Sanrio日</div><div class="ov-ds">Bakery打卡＋三麗鷗彩虹樂園</div></a>
+    <a class="ov rv rv3" href="#day4" style="--c:var(--d4)"><div class="ov-d">Day 4</div><div class="ov-dt">8/24 一</div><div class="ov-e">🎆</div><div class="ov-t">熱海花火大會</div><div class="ov-ds">箱根＋蘆之湖＋👘和服睇花火</div></a>
+    <a class="ov rv" href="#day5" style="--c:var(--d5)"><div class="ov-d">Day 5</div><div class="ov-dt">8/25 二</div><div class="ov-e">⛩️</div><div class="ov-t">淺草寺 + teamLab</div><div class="ov-ds">仲見世通＋沉浸式數位藝術</div></a>
+    <a class="ov rv rv1" href="#day6" style="--c:var(--d6)"><div class="ov-d">Day 6</div><div class="ov-dt">8/26 三</div><div class="ov-e">🐼</div><div class="ov-t">動物園 + 最後Shopping</div><div class="ov-ds">上野睇Pankichi＋秋葉原掃貨</div></a>
+    <a class="ov rv rv2" href="#day7" style="--c:var(--d7)"><div class="ov-d">Day 7</div><div class="ov-dt">8/27 四</div><div class="ov-e">🏠</div><div class="ov-t">離境返港</div><div class="ov-ds">最後掃貨＋成田機場</div></a>
+  </div>
+</div></section>
+
+<!-- FLIGHTS -->
+<section id="flights"><div class="container">
+  <div class="sl">🛫 航班資訊</div><h2 class="st">來回航班 ✈️</h2>
+  <div class="ir rv">
+    <div class="ic"><div class="il">去程</div><div class="iv">UO650</div>
+      <div class="id"><strong>8月21日（週五）</strong><br>香港國際機場T2 <strong>14:15</strong> → 東京成田機場T2 <strong>19:45</strong><br>飛行4小時30分</div>
+      <div class="tags"><span class="tag hot">櫃檯起飛前3小時開放</span><span class="tag hot">前1小時關閉</span></div>
+    </div>
+    <div class="ic"><div class="il">回程</div><div class="iv">UO849</div>
+      <div class="id"><strong>8月27日（週四）</strong><br>東京成田機場 <strong>15:45</strong> → 香港國際機場 <strong>19:40</strong><br>飛行4小時55分</div>
+      <div class="tags"><span class="tag">預留最少2小時到機場</span><span class="tag hot">最遲12:00出發去機場</span></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- HOTEL -->
+<section id="hotel"><div class="container">
+  <div class="sl">🏨 住宿</div>
+  <h2 class="st"><a href="https://www.google.com/maps/search/?api=1&query=Henn+na+Hotel+Tokyo+Asakusabashi" target="_blank" rel="noopener" style="color:var(--txt);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--pk-l)">海茵娜酒店東京淺草橋</a></h2>
+  <div class="ir rv">
+    <div class="ic"><div class="il">房型</div><div class="iv">豪華雙床房 🛏️</div>
+      <div class="id"><strong>8月21日–8月27日</strong>｜共6晚<br>交通：淺草橋站步行數分鐘</div>
+    </div>
+    <div class="ic"><div class="il">交通優勢 🚃</div><div class="iv">超方便</div>
+      <div class="id">→ 淺草寺：1站地鐵（2分鐘）<br>→ 秋葉原：1站JR<br>→ 上野：2站JR<br>→ 成田機場：Access特急直達</div>
+    </div>
+  </div>
+  <div class="hotel-addr rv">
+    <h4>📍 地址 & 電話</h4>
+    <div class="addr-row"><span class="lang">JP</span>東京都台東区柳橋二丁目18番7号</div>
+    <div class="addr-row"><span class="lang">EN</span>2-18-7 Yanagibashi, Taito-ku, Tokyo 111-0052</div>
+    <div class="addr-row"><span class="lang">CN</span>東京都台東區柳橋2丁目18-7</div>
+    <div class="addr-row"><span class="lang">TEL</span><a href="tel:+81358353589">+81-3-5835-3589</a></div>
+    <div class="addr-row"><span class="lang">MAP</span><a href="https://www.google.com/maps/search/?api=1&query=Henn+na+Hotel+Tokyo+Asakusabashi" target="_blank" rel="noopener">Google Maps ↗</a></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- DAY 1 -->
+<section id="day1"><div class="container">
+<div class="dc rv" style="--c:var(--d1)">
+  <div class="dh"><div class="dn" style="background:var(--d1)">1</div><div class="di"><h3>✈️ 抵達日 + Donki掃貨</h3><span>8月21日（週五）</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag mn">車廂有冷氣</span></div>
+    <div class="tl" style="--c:var(--d1)">
+      <div class="ti"><div class="tt">14:15</div><div class="tn">香港機場T2 起飛 ✈️</div><div class="tds">建議11:15前到達機場辦理值機托運</div></div>
+      <div class="ti"><div class="tt">19:45</div><div class="tn">抵達成田機場T2 🛬</div><div class="tds">過關、領行李</div></div>
+      <div class="ti"><div class="tt">20:30</div><div class="tn">出發前往淺草橋 🚃</div><div class="tds"><strong>推薦：Access特急</strong> → 淺草站 → 步行至淺草橋（約90分鐘，~¥1,300，直達唔使轉車）</div></div>
+      <div class="ti"><div class="tt">22:00</div><div class="tn">酒店 Check-in 🏨</div><div class="tds">放低行李</div></div>
+      <div class="ti"><div class="tt">22:15</div><div class="tn">Don Quijone 掃日用品 🛒</div><div class="tds">涼感紙巾、身體噴霧、零食飲品。上野站Central口出步行3分鐘有分店</div></div>
+      <div class="ti"><div class="tt">23:30</div><div class="tn">回酒店休息 💤</div></div>
+    </div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 2 -->
+<section id="day2"><div class="container">
+<div class="dc rv" style="--c:var(--d2)">
+  <div class="dh"><div class="dn" style="background:var(--d2)">2</div><div class="di"><h3>🛍️ 池袋Shopping + Chiikawa PARCO</h3><span>8月22日（週六）｜Yan行街Facial / Coco買BL / 一齊去Chiikawa</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <h4 style="font-size:13px;font-weight:700;margin:12px 0 6px">🌅 上午：分開行動</h4>
+    <div class="split">
+      <div class="sb"><h4>🌸 Yan</h4><ul><li>行街 Shopping 🛍️</li><li>Facial 💆‍♀️（Hot Pepper Beauty預約）</li><li>Sunshine City、PARCO商場</li></ul></div>
+      <div class="sb"><h4>💜 Coco</h4><ul><li>Animate 池袋本店 BL區 📚</li><li>乙女路 Otome Road 💕</li><li>Mandarake 池袋</li><li>K-Books 池袋</li></ul></div>
+    </div>
+    <h4 style="font-size:13px;font-weight:700;margin:12px 0 6px">🍽️ 午餐（唔食魚）</h4>
+    <div class="table-wrap"><table class="rt"><tr><th>餐廳</th><th>類型</th><th>位置</th></tr><tr><td>無敵家</td><td>濃厚豚骨拉麵 🍜</td><td>南池袋 東口步行5分鐘</td></tr><tr><td>敘敘苑</td><td>燒肉 🥩</td><td>Sunshine City附近</td></tr><tr><td>CoCo壱番屋</td><td>日式咖喱 🍛</td><td>池袋站周邊</td></tr></table></div>
+    <div class="together">
+      <h4>🐱 下午：一齊去 Chiikawa PARCO ✨</h4>
+      <div class="table-wrap"><table class="rt"><tr><th>店舖</th><th>樓層</th><th>預約</th></tr><tr><td>Chiikawa Restaurant 🍽️</td><td>7F</td><td>需 Lawson Ticket（要日本電話）</td></tr><tr><td>Chiikawa 拉麵店 🍜</td><td>8F</td><td>偶爾有即日整理券</td></tr></table></div>
+      <p style="font-size:12px;color:var(--txm);margin-top:6px">如果冇預約到餐廳，PARCO入面嘅Chiikawa周邊商品區唔使預約，一齊掃精品 🎁</p>
+    </div>
+    <div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag yw">👘 問Coco需唔需要借和服（Day 4用）</span></div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 3 -->
+<section id="day3"><div class="container">
+<div class="dc rv" style="--c:var(--d3)">
+  <div class="dh"><div class="dn" style="background:var(--d3)">3</div><div class="di"><h3>🧸 Chiikawa Bakery + 三麗鷗彩虹樂園</h3><span>8月23日（週日）｜Bakery 11:00 ✅ ｜Sanrio門票 ✅</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tags"><span class="tag mn">Chiikawa Bakery 11:00 ✅</span><span class="tag mn">三麗鷗門票 ✅</span><span class="tag lv">全室內冷氣</span></div>
+    <div class="tl" style="--c:var(--d3)">
+      <div class="ti"><div class="tt">10:30</div><div class="tn">淺草橋出發 🚃</div><div class="tds">地鐵去明治神宮前站（約25分鐘）</div></div>
+      <div class="ti"><div class="tt">11:00</div><div class="tn">Chiikawa Bakery 🥐✨</div><div class="tds">東急Plaza表參道3樓｜打卡＋買角色麵包＋掃周邊（約1小時）<br>麵包當小食，唔使另搵午餐</div></div>
+      <div class="ti"><div class="tt">12:00</div><div class="tn">出發去三麗鷗 🚃</div><div class="tds">表參道 → 多摩Centre站（約1小時）</div></div>
+      <div class="ti"><div class="tt">13:00</div><div class="tn">三麗鷗彩虹樂園 🎀🌟</div><div class="tds">入場後先食<strong>布甸狗咖喱飯</strong>做午餐 🍛<br>Hello Kitty、Cinnamoroll打卡、睇表演、掃限定精品<br>全室內，冷氣充足</div></div>
+      <div class="ti"><div class="tt">~18:00</div><div class="tn">散場回程 🚃</div><div class="tds">週日開到18:00</div></div>
+      <div class="ti"><div class="tt">19:00</div><div class="tn">晚餐 🍽️</div></div>
+    </div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 4 -->
+<section id="day4"><div class="container">
+<div class="dc rv" style="--c:var(--d4)">
+  <div class="dh"><div class="dn" style="background:var(--d4)">4</div><div class="di"><h3>🎆 熱海一日遊：箱根＋蘆之湖＋花火大會</h3><span>8月24日（週一）｜花火 20:15–20:40 ✅ ｜👘 穿和服日</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tags"><span class="tag pc">🎆 花火 20:15–20:40 ✅</span><span class="tag yw">👘 穿和服睇花火！</span><span class="tag">一日遊團（港幣）</span></div>
+    <div class="tl" style="--c:var(--d4)">
+      <div class="ti"><div class="tt">早上</div><div class="tn">跟團出發 → 箱根 🚌</div></div>
+      <div class="ti"><div class="tt">上午</div><div class="tn">箱根觀光 🏔️</div><div class="tds">著和服行箱根都好靚 📸</div></div>
+      <div class="ti"><div class="tt">下午</div><div class="tn">蘆之湖遊船 ⛴️</div><div class="tds">湖上風光，天氣好可以望到富士山 🗻<br>和服湖邊影相超靚！✨</div></div>
+      <div class="ti"><div class="tt">傍晚</div><div class="tn">轉場熱海 🌅</div><div class="tds">如有自由時間行商店街、買熱海布丁 🍮</div></div>
+      <div class="ti"><div class="tt">20:15</div><div class="tn">🎆 熱海海上花火大會 🎆</div><div class="tds">壓軸「大空中尼加拉」銀色煙火佈滿整個天空 🌠<br><strong>👘 穿和服睇花火，超有儀式感！</strong></div></div>
+      <div class="ti"><div class="tt">20:40</div><div class="tn">花火結束 → 回程 🚌</div></div>
+    </div>
+    <div class="table-wrap"><table class="rt"><tr><th></th><th>⛴️ 上船睇（~HK$583）</th><th>🏖️ 沙灘睇（~HK$438）</th></tr><tr><td>角度</td><td>海上正面</td><td>Sun Beach正對打上點</td></tr><tr><td>佔位</td><td>唔使搶</td><td>建議19:00前到</td></tr><tr><td>體驗</td><td>獨特海上視覺</td><td>舖墊坐沙灘＋屋台小食</td></tr></table></div>
+    <div class="tags"><span class="tag hot">必帶：野餐墊</span><span class="tag hot">必帶：小風扇</span><span class="tag hot">必帶：充電寶</span></div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 5 -->
+<section id="day5"><div class="container">
+<div class="dc rv" style="--c:var(--d5)">
+  <div class="dh"><div class="dn" style="background:var(--d5)">5</div><div class="di"><h3>⛩️ 淺草寺 + teamLab Borderless</h3><span>8月25日（週二）</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tags"><span class="tag">teamLab需提前買飛 🎫</span><span class="tag lv">全冷氣行程</span></div>
+    <div class="tl" style="--c:var(--d5)">
+      <div class="ti"><div class="tt">09:00</div><div class="tn">淺草寺 + 仲見世通 ⛩️</div><div class="tds">淺草橋 → 淺草站（1站，2分鐘）<br>雷門打卡 📸 → 仲見世通買手信<br>淺草寺參拜 → 8樓免費展望台 🗼</div></div>
+      <div class="ti"><div class="tt">12:00</div><div class="tn">淺草午餐 🍜</div><div class="tds">一蘭拉麵 / 淺草メンチ（炸肉餅）/ CoCo壱番屋</div></div>
+      <div class="ti"><div class="tt">13:00</div><div class="tn">出發去 teamLab 🚃</div><div class="tds">銀座線 → 日比谷線 → 神谷町站（約20分鐘）</div></div>
+      <div class="ti"><div class="tt">13:30</div><div class="tn">teamLab Borderless 🎨✨</div><div class="tds">麻布台Hills（預留2–3小時）<br>特別展「On the Asymmetry of the Universe」<br>EN Tea House（茶碗中花朵無限綻放 🌸）<br><strong>💡 穿白色/淨色衫影相最靚</strong><br><strong>💡 避免裙（有鏡面地板）</strong></div></div>
+      <div class="ti"><div class="tt">16:30</div><div class="tn">Chiikawa Land 東京站店 🐻</div><div class="tds">東京站八重洲北口地下1樓｜營業至20:30｜唔使預約</div></div>
+      <div class="ti"><div class="tt">18:00</div><div class="tn">晚餐 🍽️</div><div class="tds">東京站地下街 GranStations / 一番街</div></div>
+      <div class="ti"><div class="tt">19:30</div><div class="tn">返酒店 🏨</div></div>
+    </div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 6 -->
+<section id="day6"><div class="container">
+<div class="dc rv" style="--c:var(--d6)">
+  <div class="dh"><div class="dn" style="background:var(--d6)">6</div><div class="di"><h3>🐼 上野動物園 + 秋葉原 + 最後Shopping</h3><span>8月26日（週三）｜Pankichi + 最後衝刺</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tags"><span class="tag">動物園門票 ¥600 現場買</span><span class="tag mn">最輕鬆嘅一日 😌</span></div>
+    <div class="tl" style="--c:var(--d6)">
+      <div class="ti"><div class="tt">09:00</div><div class="tn">淺草橋出發 → 上野 🚃</div><div class="tds">JR至秋葉原 → JR山手線至上野（約15分鐘）</div></div>
+      <div class="ti"><div class="tt">09:30</div><div class="tn">上野動物園 🐼🐨</div><div class="tds">先去睇<strong>Pankichi</strong>避開人潮（2–3小時）</div></div>
+      <div class="ti"><div class="tt">12:00</div><div class="tn">阿美橫町 🛍️</div><div class="tds">行街＋午餐：燒肉、炸豬排、水果攤</div></div>
+      <div class="ti"><div class="tt">13:30</div><div class="tn">上野公園散步 🌳</div></div>
+      <div class="ti"><div class="tt">14:30</div><div class="tn">出發去秋葉原（JR一站）🎮</div><div class="tds">Animate、Mandarake、扭蛋、電器<br>動漫周邊最後掃貨</div></div>
+      <div class="ti"><div class="tt">16:00</div><div class="tn">最後藥妝補貨 💊</div><div class="tds">松本清、Sundrug</div></div>
+      <div class="ti"><div class="tt">17:00</div><div class="tn">返酒店整理行李 🧳</div><div class="tds">第二日要checkout！</div></div>
+      <div class="ti"><div class="tt">18:30</div><div class="tn">最後一晚晚餐 🍽️🥂</div></div>
+    </div>
+  </div></div>
+</div>
+</div></section>
+
+<!-- DAY 7 -->
+<section id="day7"><div class="container">
+<div class="dc rv" style="--c:var(--d7)">
+  <div class="dh"><div class="dn" style="background:var(--d7)">7</div><div class="di"><h3>🏠 離境返港</h3><span>8月27日（週四）｜15:45 航班</span></div><div class="da">▾</div></div>
+  <div class="db"><div class="dbc">
+    <div class="tl" style="--c:var(--d7)">
+      <div class="ti"><div class="tt">09:00</div><div class="tn">起身，收拾行李 🧳</div></div>
+      <div class="ti"><div class="tt">10:00</div><div class="tn">辦理 Checkout 🏨</div><div class="tds">行李寄存酒店前台</div></div>
+      <div class="ti"><div class="tt">10:15</div><div class="tn">最後掃貨 🛒💊</div><div class="tds">淺草橋附近商店街、藥妝店最後補貨</div></div>
+      <div class="ti"><div class="tt">11:30</div><div class="tn">最後一餐 Lunch 🍜</div></div>
+      <div class="ti"><div class="tt">12:00</div><div class="tn">返酒店拎行李</div></div>
+      <div class="ti"><div class="tt">12:15</div><div class="tn">出發前往成田機場 🚃</div><div class="tds"><strong>推薦：淺草站 → Access特急 → 成田</strong><br>約80分鐘，¥1,300<br>⚠️ 最遲12:00一定要出發</div></div>
+      <div class="ti"><div class="tt">13:30</div><div class="tn">抵達成田機場 ✈️</div><div class="tds">值機＋安檢</div></div>
+      <div class="ti"><div class="tt">14:30</div><div class="tn">免稅店最後掃貨 🎁</div><div class="tds">東京Banana、白色戀人、薯條三兄弟...</div></div>
+      <div class="ti"><div class="tt">15:45</div><div class="tn">✈️ 航班起飛</div><div class="tds">UO849 → 香港</div></div>
+      <div class="ti"><div class="tt">19:40</div><div class="tn">🏠 抵達香港</div><div class="tds">帶住滿滿回憶同戰利品返屋企！✨</div></div>
+    </div>
+  </div></div>
+</div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- 美食推薦 -->
+<section id="food"><div class="container">
+  <div class="sl">🍜 美食推薦</div>
+  <h2 class="st">唔食魚都食到飽！ 🤤</h2>
+  <p class="sd">全部係非海鮮選擇，拉麵、燒肉、咖喱、洋食樣樣有。</p>
+  <div class="food-grid rv">
+    <div class="food-card"><h4>🍜 拉麵</h4><div class="fc-sub">到處都有，最安全嘅選擇</div>
+      <div class="food-item"><span class="food-name">無敵家</span><span class="food-detail">池袋｜濃厚豚骨拉麵名店</span></div>
+      <div class="food-item"><span class="food-name">AFURI</span><span class="food-detail">原宿｜清爽柚子鹽拉麵</span></div>
+      <div class="food-item"><span class="food-name">一蘭</span><span class="food-detail">淺草｜經典豚骨，24小時營業</span></div>
+    </div>
+    <div class="food-card"><h4>🍛 咖喱</h4><div class="fc-sub">日式咖喱，百搭唔會伏</div>
+      <div class="food-item"><span class="food-name">CoCo壱番屋</span><span class="food-detail">全區連鎖｜自選辣度＋配料</span></div>
+      <div class="food-item"><span class="food-name">Go!Go!Curry</span><span class="food-detail">秋葉原｜黑咖喱，份量大</span></div>
+    </div>
+    <div class="food-card"><h4>🥩 燒肉</h4><div class="fc-sub">100%唔會有魚！</div>
+      <div class="food-item"><span class="food-name">敘敘苑</span><span class="food-detail">池袋｜高級燒肉，午市抵食</span></div>
+      <div class="food-item"><span class="food-name">牛角</span><span class="food-detail">全區連鎖｜平價放題</span></div>
+      <div class="food-item"><span class="food-name">烤肉Like</span><span class="food-detail">全區｜一人燒肉，快速方便</span></div>
+    </div>
+    <div class="food-card"><h4>🍖 洋食 & 牛丼</h4><div class="fc-sub">快餐級別，快速方便</div>
+      <div class="food-item"><span class="food-name">松屋/吉野家/すき家</span><span class="food-detail">全區｜牛丼三巨頭，¥400有找</span></div>
+      <div class="food-item"><span class="food-name">ガスト/ジョナサン</span><span class="food-detail">全區｜家庭餐廳，漢堡排蛋包飯</span></div>
+    </div>
+    <div class="food-card"><h4>🍡 甜品 & Bakery</h4><div class="fc-sub">打卡able！ 📸</div>
+      <div class="food-item"><span class="food-name">Chiikawa Bakery</span><span class="food-detail">表參道｜角色造型麵包 ✅</span></div>
+      <div class="food-item"><span class="food-name">熱海プリン</span><span class="food-detail">熱海｜手工蒸製布甸 🍮</span></div>
+      <div class="food-item"><span class="food-name">便利店甜品</span><span class="food-detail">Lawson/7-11｜意外高質！</span></div>
+    </div>
+    <div class="food-card"><h4>🏪 便利店必試</h4><div class="fc-sub">唔好睇小便利店！</div>
+      <div class="food-item"><span class="food-name">唐揚げ</span><span class="food-detail">Lawson最出名，即炸超正 🍗</span></div>
+      <div class="food-item"><span class="food-name">飯糰</span><span class="food-detail">明太子/梅/炸雞，留意避開鮭魚</span></div>
+      <div class="food-item"><span class="food-name">抹茶甜品</span><span class="food-detail">7-11限定，抹茶卷蛋糕必試 🍵</span></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- 必買推薦 -->
+<section id="shop"><div class="container">
+  <div class="sl">🛒 必買推薦</div>
+  <h2 class="st">掃貨指南 🛍️</h2>
+  <p class="sd">藥妝、零食、周邊，買到你唔想拎 🤩</p>
+  <div class="buy-cat rv">
+    <h4>💊 藥妝</h4>
+    <div class="buy-grid">
+      <div class="buy-item"><div class="buy-emoji">🧊</div><div class="buy-info"><div class="buy-name">花王 涼感濕紙巾</div><div class="buy-desc">8月救命神器</div><div class="buy-tag">約¥200–400</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">💦</div><div class="buy-info"><div class="buy-name">Deonatulle 止汗石</div><div class="buy-desc">日本No.1止汗產品</div><div class="buy-tag">約¥800</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">☀️</div><div class="buy-info"><div class="buy-name">Anessa / Allie 防曬霜</div><div class="buy-desc">日本防曬天花板</div><div class="buy-tag">約¥2,000–3,000</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">👁️</div><div class="buy-info"><div class="buy-name">花王 蒸汽眼罩</div><div class="buy-desc">飛機上用，舒緩疲勞</div><div class="buy-tag">約¥700</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">💋</div><div class="buy-info"><div class="buy-name">CANMAKE / CEZANNE</div><div class="buy-desc">日本開架彩妝超值</div><div class="buy-tag">約¥500–800</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">😷</div><div class="buy-info"><div class="buy-name">龍角散</div><div class="buy-desc">喉嚨不適必備</div><div class="buy-tag">約¥700</div></div></div>
+    </div>
+  </div>
+  <div class="buy-cat rv">
+    <h4>🍫 零食手信</h4>
+    <div class="buy-grid">
+      <div class="buy-item"><div class="buy-emoji">🍌</div><div class="buy-info"><div class="buy-name">東京Banana</div><div class="buy-desc">東京No.1手信</div><div class="buy-tag">機場有賣</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🍟</div><div class="buy-info"><div class="buy-name">薯條三兄弟</div><div class="buy-desc">北海道名物</div><div class="buy-tag">機場有賣</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🍫</div><div class="buy-info"><div class="buy-name">Royce 生朱古力</div><div class="buy-desc">入口即化</div><div class="buy-tag">機場有賣</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🍬</div><div class="buy-info"><div class="buy-name">Kit Kat 限定口味</div><div class="buy-desc">抹茶、焙茶、日本酒</div><div class="buy-tag">Donki/機場</div></div></div>
+    </div>
+  </div>
+  <div class="buy-cat rv">
+    <h4>🎀 動漫周邊 & 特色手信</h4>
+    <div class="buy-grid">
+      <div class="buy-item"><div class="buy-emoji">🐻</div><div class="buy-info"><div class="buy-name">Chiikawa 限定精品</div><div class="buy-desc">Bakery + 東京站 + PARCO 三線掃貨</div><div class="buy-tag">各店限定唔同</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">三麗鷗 Puroland 限定</div><div class="buy-desc">樂園獨家精品</div><div class="buy-tag">園內商店</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">📚</div><div class="buy-info"><div class="buy-name">BL漫畫 / 周邊</div><div class="buy-desc">Animate池袋本店 BL區最齊全</div><div class="buy-tag">Animate/Otome Road</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🍊</div><div class="buy-info"><div class="buy-name">熱海蜜柑醬 / 蒲鉾</div><div class="buy-desc">熱海名物</div><div class="buy-tag">Day 4 熱海</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🎰</div><div class="buy-info"><div class="buy-name">扭蛋</div><div class="buy-desc">秋葉原扭蛋大樓</div><div class="buy-tag">¥200–500/次</div></div></div>
+      <div class="buy-item"><div class="buy-emoji">🍡</div><div class="buy-info"><div class="buy-name">淺草仲見世通小吃</div><div class="buy-desc">人形燒、炸饅頭</div><div class="buy-tag">現場即食</div></div></div>
+    </div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- WEATHER -->
+<section id="weather"><div class="container">
+  <div class="sl">🌡️ 天氣</div><h2 class="st">8月下旬東京天氣 🌞</h2><p class="sd">又熱又濕又曬，同香港8月差唔多。</p>
+  <div class="wx-grid rv">
+    <div class="wx"><div class="wx-i">🌡️</div><div class="wx-v">27–33°C</div><div class="wx-l">氣溫（體感36–38°C）</div></div>
+    <div class="wx"><div class="wx-i">💧</div><div class="wx-v">70–85%</div><div class="wx-l">濕度（非常焗）</div></div>
+    <div class="wx"><div class="wx-i">☀️</div><div class="wx-v">UV 極強</div><div class="wx-l">10:00–15:00最曬</div></div>
+    <div class="wx"><div class="wx-i">🌅</div><div class="wx-v">04:50/18:30</div><div class="wx-l">日出 / 日落</div></div>
+  </div>
+</div></section>
+
+<!-- COLOR STYLE GUIDE -->
+<section id="style"><div class="container">
+  <div class="sl">🎨 穿搭顏色建議</div>
+  <h2 class="st">每日配色方案 👗</h2>
+  <p class="sd">輕便＋透氣＋防曬＋室內抗凍。</p>
+  <div class="cg rv">
+    <div class="cc"><h4>🛍️ Day 2 池袋逛街</h4><div class="sub">隨性輕鬆，掃貨唔怕髒</div>
+      <div class="sw"><div class="swc" style="background:#E8D5B7"><span class="swc-l">杏色</span></div><div class="swc" style="background:#A8D8EA"><span class="swc-l">天藍</span></div><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">白色</span></div><div class="swc" style="background:#F5E6CC"><span class="swc-l">奶茶</span></div></div>
+      <ul><li>大地色系＋天藍點綴</li><li>白Tee + 牛仔短褲最穩陣</li></ul>
+    </div>
+    <div class="cc"><h4>🧸 Day 3 Chiikawa + Sanrio</h4><div class="sub">可愛風全開 🎀</div>
+      <div class="sw"><div class="swc" style="background:#FFB6C1"><span class="swc-l">粉紅</span></div><div class="swc" style="background:#DDA0DD"><span class="swc-l">淺紫</span></div><div class="swc" style="background:#FFD166"><span class="swc-l">布甸黃</span></div><div class="swc" style="background:#B0E0E6"><span class="swc-l">粉藍</span></div></div>
+      <ul><li>Pink / Lavender 配Sanrio主題</li><li>可以著colorful啲！</li></ul>
+    </div>
+    <div class="cc"><h4>🎆 Day 4 熱海花火</h4><div class="sub">👘 和服日！</div>
+      <div class="sw"><div class="swc" style="background:#1B2A4A"><span class="swc-l">深藍</span></div><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">白色</span></div><div class="swc" style="background:#C0392B"><span class="swc-l">紅色</span></div><div class="swc" style="background:#D4AF37"><span class="swc-l">金色</span></div></div>
+      <ul><li><strong>👘 和服睇花火超有儀式感！</strong></li><li>深色底配金色腰帶最搶眼</li><li>帶薄外套，夜晚海邊有風</li></ul>
+    </div>
+    <div class="cc"><h4>⛩️ Day 5 淺草寺 + teamLab</h4><div class="sub">端莊 → 暗黑光影</div>
+      <div class="sw"><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">全白</span></div><div class="swc" style="background:#000"><span class="swc-l">全黑</span></div><div class="swc" style="background:#F5F5DC"><span class="swc-l">米白</span></div><div class="swc" style="background:#8FBC8F"><span class="swc-l">鼠尾草</span></div></div>
+      <ul><li>淺草寺：端莊唔好太暴露</li><li><strong>teamLab：白色衫喺暗黑空間最搶眼！</strong></li><li>避免裙（鏡面地板）</li></ul>
+    </div>
+    <div class="cc"><h4>🐼 Day 6 動物園 + Shopping</h4><div class="sub">最後一日，輕鬆舒適 😌</div>
+      <div class="sw"><div class="swc" style="background:#87CEEB"><span class="swc-l">天空藍</span></div><div class="swc" style="background:#98FB98"><span class="swc-l">薄荷綠</span></div><div class="swc" style="background:#FFE4B5"><span class="swc-l">暖杏</span></div><div class="swc" style="background:#FFB347"><span class="swc-l">活力橙</span></div></div>
+      <ul><li>明亮清新色</li><li>帶深色大袋裝戰利品</li></ul>
+    </div>
+  </div>
+  <h4 style="font-size:14px;font-weight:700;margin:24px 0 10px">👟 通用Tips</h4>
+  <div class="cg rv">
+    <div class="cc"><h4>👚 上裝</h4><ul><li>寬鬆棉質/亞麻T恤</li><li>吊帶背心 + 薄外套（抗冷氣）</li><li>避免低胸露肩（入寺廟）</li></ul></div>
+    <div class="cc"><h4>👟 鞋 & 配件</h4><ul><li>舒適波鞋（每日行1.5萬步！）</li><li>方便穿脫（要脫鞋）</li><li>防曬帽、太陽眼鏡必備</li></ul></div>
+    <div class="cc"><h4>💄 妝容抗暑</h4><ul><li>定妝噴霧 + 吸油紙</li><li>防曬霜（到埗藥妝店買）</li><li>涼感紙巾 → Donki買</li></ul></div>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- PACKING -->
+<section id="pack"><div class="container">
+  <div class="sl">🧳 行李準備</div><h2 class="st">打包清單 ✅</h2><p class="sd">打 ✓ 確認已放入行李箱，狀態會自動保存。</p>
+  <div class="cbg rv">
+    <h4>👚 衣物</h4>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p1"><span class="ct">棉質T恤 x4–5</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p2"><span class="ct">薄外套 / 防曬衫 x1</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p3"><span class="ct">吊帶背心 x1</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p4"><span class="ct">寬鬆短褲 / 七分褲 x2</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p5"><span class="ct">闊腳褲 / 薄裙 x1</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p6"><span class="ct">舒適波鞋 👟</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p7"><span class="ct">涼鞋 x1</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p8"><span class="ct">船襪 / 短襪 x2</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p9"><span class="ct">👘 和服（Day 4 熱海花火穿）</span></label>
+  </div>
+  <div class="cbg rv">
+    <h4>🎀 配件</h4>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p10"><span class="ct">防曬帽 / 遮 🧢</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p11"><span class="ct">太陽眼鏡 🕶️</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p12"><span class="ct">薄圍巾 / 披肩</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p13"><span class="ct">迷你手提袋 👜</span></label>
+  </div>
+  <div class="cbg rv">
+    <h4>💄 妝容 & 護膚</h4>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p20"><span class="ct">定妝噴霧 💦</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p21"><span class="ct">吸油紙</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p22"><span class="ct">防曬霜 ☀️</span></label>
+  </div>
+  <div class="cbg rv">
+    <h4>🔌 電子 & 實用</h4>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p30"><span class="ct">充電寶 🔋</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p31"><span class="ct">手機充電線</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p33"><span class="ct">野餐墊（Day 4 花火用）🧺</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="p34"><span class="ct">小風扇 🌀</span></label>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- PRE-DEPARTURE -->
+<section id="ck"><div class="container">
+  <div class="sl">📋 出發前</div><h2 class="st">出發前Checklist 📝</h2>
+  <div class="cbg rv">
+    <h4>🔴 急（即刻處理）</h4>
+    <label class="ci"><input type="checkbox" class="ck" data-key="t1"><span class="ct">teamLab Borderless 8/25 門票 — 官網提前購（現場加收¥200）</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="t2"><span class="ct">熱海一日遊團 — 確認訂位＋揀上船/沙灘</span></label>
+    <label class="ci"><input type="checkbox" class="ck" data-key="t3"><span class="ct">Facial 預約（8/22 池袋）— Hot Pepper Beauty 💆‍♀️</span></label>
+  </div>
+  <div class="cbg rv">
+    <h4>✅ 已搞掂</h4>
+    <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Chiikawa Bakery 8/23 11:00 ✅</span></label>
+    <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">三麗鷗彩虹樂園 8/23 門票 ✅</span></label>
+    <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">熱海花火 8/24 確認 ✅</span></label>
+    <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">酒店已訂（海茵娜淺草橋，6晚） ✅</span></label>
+    <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Apple Pay Suica ✅</span></label>
+  </div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- TIPS -->
+<section id="tips"><div class="container">
+  <div class="sl">💡 實用提醒</div><h2 class="st">旅程小Tips 💪</h2>
+  <div class="tg rv">
+    <div class="tc"><h4>🚃 交通</h4><ul><li>全程 Apple Pay Suica 拍卡</li><li>Access特急直达成田（¥1,300，約80分鐘）</li><li>去程：成田 → 淺草站 → 步行至淺草橋</li><li>回程同路線反方向</li></ul></div>
+    <div class="tc"><h4>🍽️ 飲食（唔食魚！）</h4><ul><li>搜「洋食」「肉」「ラーメン」「カレー」</li><li>拉麵、咖喱、燒肉一定冇魚</li><li>炸豬排、牛丼都係安全選擇</li><li>便利店飯糰留意餡料</li></ul></div>
+    <div class="tc"><h4>📱 實用App</h4><ul><li>Google Maps — 搵路＋搵餐廳</li><li>Hot Pepper Beauty — 預約Facial</li><li>Suica App — 查餘額</li><li>Lawson Ticket — Chiikawa預約</li></ul></div>
+    <div class="tc"><h4>🧊 防暑</h4><ul><li>涼感紙巾、身體噴霧 → Donki/藥妝店買</li><li>日本防曬霜品質好好</li><li>隨處有自動售賣機</li><li>室內冷氣超凍，薄外套必備</li></ul></div>
+  </div>
+</div></section>
+
+</main>
+
+<footer>
+  <p>熱辣辣東京放暑假 aka 萬張美照挑戰 📸✨</p>
+  <p>Coco 🎀 & Yan 🌸 ｜ 2026.08.21 – 08.27 ｜ Have the best trip ever <span>♥</span></p>
+</footer>
+
+<script>
+document.querySelectorAll('.dh').forEach(h=>{h.addEventListener('click',()=>h.parentElement.classList.toggle('open'))});
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')})},{threshold:.06});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+document.querySelectorAll('.ck:not([disabled])').forEach(inp=>{const k=inp.dataset.key;if(!k)return;if(localStorage.getItem(k)==='true')inp.checked=true;const tx=inp.nextElementSibling;if(inp.checked&&tx)tx.classList.add('done');inp.addEventListener('change',()=>{localStorage.setItem(k,inp.checked);if(tx)tx.classList.toggle('done',inp.checked)})});
+const secs=document.querySelectorAll('section[id],header[id]'),nL=document.querySelectorAll('.nav a');
+const nO=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){nL.forEach(a=>a.classList.remove('active'));const l=document.querySelector('.nav a[href="#'+x.target.id+'"]');if(l)l.classList.add('active')}})},{rootMargin:'-40% 0px -55% 0px'});
+secs.forEach(s=>nO.observe(s));
+// Close other day cards when one opens
+document.querySelectorAll('.dc').forEach(card=>{
+  card.querySelector('.dh').addEventListener('click',()=>{
+    document.querySelectorAll('.dc.open').forEach(c=>{if(c!==card)c.classList.remove('open')});
+  });
+});
+</script>
+</body>
+</html>
