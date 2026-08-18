@@ -110,8 +110,8 @@ section{padding:48px 0}
 .sw{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:8px}
 .swc{width:32px;height:32px;border-radius:8px;border:2px solid rgba(255,255,255,.8);box-shadow:0 2px 6px rgba(0,0,0,.1);position:relative}
 .swc-l{position:absolute;bottom:-16px;left:50%;transform:translateX(-50%);font-size:8px;color:var(--txm);white-space:nowrap}
-.cc ul{list-style:none;font-size:12px;color:var(--txm)}
-.cc li{padding:2px 0 2px 16px;position:relative}.cc li::before{content:'✦';position:absolute;left:0;color:var(--pk);font-size:9px}
+.cc ul,.rl ul{list-style:none;font-size:12px;color:var(--txm)}
+.cc li,.rl li{padding:2px 0 2px 16px;position:relative}.cc li::before,.rl li::before{content:'✦';position:absolute;left:0;color:var(--pk);font-size:9px}
 .food-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:var(--gap)}
 .food-card{background:var(--s);border-radius:var(--rs);padding:18px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
 .food-card h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:3px;display:flex;align-items:center;gap:6px}
@@ -125,6 +125,10 @@ section{padding:48px 0}
 .buy-emoji{font-size:22px;flex-shrink:0}
 .buy-info{flex:1}.buy-name{font-size:13px;font-weight:600;margin-bottom:1px}.buy-desc{font-size:11px;color:var(--txm);line-height:1.5}
 .buy-tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 7px;border-radius:8px;margin-top:3px;background:var(--yw-l);color:#9a7b00}
+.rl{background:var(--s);border-radius:var(--rs);padding:14px 16px;margin-bottom:8px;box-shadow:var(--sh);border:1px solid rgba(74,65,88,.04)}
+.rl h4{font-size:13px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:2px}
+.rl .rl-sub{font-size:11px;color:var(--txm);margin-bottom:4px}
+.rl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px}
 .cbg{margin-bottom:18px}.cbg h4{font-size:14px;font-family:'Noto Sans TC',sans-serif;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px}
 .ci{display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--s);border-radius:var(--rx);margin-bottom:5px;cursor:pointer;transition:background .2s;border:1px solid rgba(74,65,88,.04);-webkit-tap-highlight-color:transparent;min-height:44px}
 .ci:hover{background:var(--s2)}
@@ -140,7 +144,7 @@ section{padding:48px 0}
 .rv1{transition-delay:.1s}.rv2{transition-delay:.2s}.rv3{transition-delay:.3s}
 footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65,88,.06);color:var(--txm);font-size:12px}footer span{color:var(--pk)}
 ::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--pk-l);border-radius:3px}
-@media(max-width:768px){:root{--pad:14px;--gap:10px;--r:16px;--rs:10px}section{padding:36px 0}.ov-grid{grid-template-columns:repeat(2,1fr)}.ir{grid-template-columns:1fr}.split{grid-template-columns:1fr}.dh{padding:14px;gap:12px}.dn{width:42px;height:42px;border-radius:12px;font-size:18px}.di h3{font-size:14px}.dbc{padding:0 14px 14px}.hero{min-height:min(88vh,700px);padding:60px var(--pad) 70px}.nav a{font-size:11px;padding:5px 10px}}
+@media(max-width:768px){:root{--pad:14px;--gap:10px;--r:16px;--rs:10px}section{padding:36px 0}.ov-grid{grid-template-columns:repeat(2,1fr)}.ir{grid-template-columns:1fr}.split{grid-template-columns:1fr}.dh{padding:14px;gap:12px}.dn{width:42px;height:42px;border-radius:12px;font-size:18px}.di h3{font-size:14px}.dbc{padding:0 14px 14px}.hero{min-height:min(88vh,700px);padding:60px var(--pad) 70px}.nav a{font-size:11px;padding:5px 10px}.rl-grid{grid-template-columns:1fr}}
 @media(max-width:420px){.ov-grid{grid-template-columns:1fr 1fr}.ov{padding:14px}.ov-e{font-size:24px}.ov-t{font-size:13px}.ov-ds{font-size:11px}.hero-tags{gap:6px}.hero-tag{font-size:11px;padding:5px 10px}.split{gap:8px}.sb{padding:12px}}
 @media(min-width:769px){.ov-grid{grid-template-columns:repeat(4,1fr)}.cg{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1024px){:root{--pad:24px}.nav-in{padding:10px var(--pad)}}
@@ -152,7 +156,8 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 <nav class="nav"><div class="nav-in">
 <a href="#top">首頁</a><a href="#flights">航班</a><a href="#hotel">酒店</a>
 <a href="#day1">D1</a><a href="#day2">D2</a><a href="#day3">D3</a><a href="#day4">D4</a><a href="#day5">D5</a><a href="#day6">D6</a><a href="#day7">D7</a>
-<a href="#food">美食</a><a href="#shop">必買</a><a href="#weather">天氣</a><a href="#style">穿搭</a><a href="#ck">Checklist</a>
+<a href="#shop">Shopping</a><a href="#drug">藥妝</a><a href="#food">美食</a><a href="#hand">手信</a><a href="#ref">攻略</a>
+<a href="#weather">天氣</a><a href="#ck">Checklist</a>
 </div></nav>
 
 <header class="hero" id="top">
@@ -183,28 +188,24 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 
 <!-- OVERVIEW -->
 <section id="overview"><div class="container">
-<div class="sl">✈️ 行程總覽</div>
-<h2 class="st">7日東京GO! 🗼</h2>
-<p class="sd">每一天都有主題，每一刻都係回憶 ✨</p>
+<div class="sl">✈️ 行程總覽</div><h2 class="st">7日東京GO! 🗼</h2><p class="sd">每一天都有主題，每一刻都係回憶 ✨</p>
 <div class="ov-grid">
-<a class="ov rv" href="#day1" style="--c:var(--d1)"><div class="ov-d">Day 1</div><div class="ov-dt">8/21 五</div><div class="ov-e">✈️</div><div class="ov-t">抵達日</div><div class="ov-ds">到埗＋Donki掃貨</div></a>
-<a class="ov rv rv1" href="#day2" style="--c:var(--d2)"><div class="ov-d">Day 2</div><div class="ov-dt">8/22 六</div><div class="ov-e">📺</div><div class="ov-t">台場 ＋ 晴空塔</div><div class="ov-ds">Fun Rising＋🐱Chiikawa亮燈19:30</div></a>
+<a class="ov rv" href="#day1" style="--c:var(--d1)"><div class="ov-d">Day 1</div><div class="ov-dt">8/21 五</div><div class="ov-e">✈️</div><div class="ov-t">抵達日</div><div class="ov-ds">到埗＋Donki掃涼感面膜</div></a>
+<a class="ov rv rv1" href="#day2" style="--c:var(--d2)"><div class="ov-d">Day 2</div><div class="ov-dt">8/22 六</div><div class="ov-e">📺</div><div class="ov-t">台場 ＋ 晴空塔</div><div class="ov-ds">Fun Rising＋PUNYUS＋🐱Chiikawa亮燈19:30</div></a>
 <a class="ov rv rv2" href="#day3" style="--c:var(--d3)"><div class="ov-d">Day 3</div><div class="ov-dt">8/23 日</div><div class="ov-e">🎀</div><div class="ov-t">三麗鷗彩虹樂園</div><div class="ov-ds">🍮Coco布甸狗 × 🐶Yan肉桂狗</div></a>
 <a class="ov rv rv3" href="#day4" style="--c:var(--d4)"><div class="ov-d">Day 4</div><div class="ov-dt">8/24 一</div><div class="ov-e">🎆</div><div class="ov-t">熱海花火大會</div><div class="ov-ds">箱根＋蘆之湖＋👗白色長裙睇花火</div></a>
-<a class="ov rv" href="#day5" style="--c:var(--d5)"><div class="ov-d">Day 5</div><div class="ov-dt">8/25 二</div><div class="ov-e">⛩️</div><div class="ov-t">淺草寺 + 池袋</div><div class="ov-ds">Shopping＋🐱Chiikawa Park＋Yakiniku晚餐</div></a>
+<a class="ov rv" href="#day5" style="--c:var(--d5)"><div class="ov-d">Day 5</div><div class="ov-dt">8/25 二</div><div class="ov-e">🛍️</div><div class="ov-t">池袋Shopping日</div><div class="ov-ds">淺草＋內衣＋SUPURE＋PUNYUS＋Loft＋🐱Chiikawa Park＋燒肉</div></a>
 <a class="ov rv rv1" href="#day6" style="--c:var(--d6)"><div class="ov-d">Day 6</div><div class="ov-dt">8/26 三</div><div class="ov-e">🐼</div><div class="ov-t">動物園 + 最後Shopping</div><div class="ov-ds">上野睇Pankichi＋秋葉原掃貨</div></a>
 <a class="ov rv rv2" href="#day7" style="--c:var(--d7)"><div class="ov-d">Day 7</div><div class="ov-dt">8/27 四</div><div class="ov-e">🏠</div><div class="ov-t">離境返港</div><div class="ov-ds">最後掃貨＋成田機場</div></a>
-</div>
-</div></section>
+</div></div></section>
 
 <!-- FLIGHTS -->
 <section id="flights"><div class="container">
 <div class="sl">🛫 航班資訊</div><h2 class="st">來回航班 ✈️</h2>
 <div class="ir rv">
-<div class="ic"><div class="il">去程</div><div class="iv">UO650</div><div class="id"><strong>8月21日（週五）</strong><br>香港國際機場T2 <strong>14:15</strong> → 東京成田機場T2 <strong>19:45</strong><br>飛行4小時30分</div><div class="tags"><span class="tag hot">櫃檯起飛前3小時開放</span><span class="tag hot">前1小時關閉</span></div></div>
+<div class="ic"><div class="il">去程</div><div class="iv">UO650</div><div class="id"><strong>8月21日（週五）</strong><br>香港機場T2 <strong>14:15</strong> → 東京成田機場T2 <strong>19:45</strong><br>飛行4小時30分</div><div class="tags"><span class="tag hot">櫃檯起飛前3小時開放</span><span class="tag hot">前1小時關閉</span></div></div>
 <div class="ic"><div class="il">回程</div><div class="iv">UO849</div><div class="id"><strong>8月27日（週四）</strong><br>東京成田機場 <strong>15:45</strong> → 香港國際機場 <strong>19:40</strong><br>飛行4小時55分</div><div class="tags"><span class="tag">預留最少2小時到機場</span><span class="tag hot">最遲12:00出發去機場</span></div></div>
-</div>
-</div></section>
+</div></div></section>
 
 <!-- HOTEL -->
 <section id="hotel"><div class="container">
@@ -226,11 +227,10 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 <h4>✈️ 機場 ↔ 酒店交通</h4>
 <div class="addr-row"><span class="lang">去程</span><strong>Access特急 直達淺草橋站</strong>｜¥1,177｜約1小時39分</div>
 <div class="addr-row"><span class="lang">回程</span><strong>淺草橋站 → Access特急 → 成田機場</strong>｜¥1,177｜約1小時39分</div>
-<div class="addr-row"><span class="lang">優勢</span>Through-service 直通運轉，唔使轉車，淺草之後直落淺草橋落車行幾步到酒店</div>
-<div class="addr-row"><span class="lang">付款</span>Apple Pay Suica 拍卡入閘，唔使排隊買飛</div>
-<div class="addr-row"><span class="lang">回程</span>⚠️ 15:45航班，最遲12:00出發搭12:05班次，13:40到機場</div>
-</div>
-</div></section>
+<div class="addr-row"><span class="lang">優勢</span>Through-service 直通運轉，唔使轉車，淺草之後直落淺草橋</div>
+<div class="addr-row"><span class="lang">付款</span>Apple Pay Suica 拍卡入閘</div>
+<div class="addr-row"><span class="lang">⚠️</span>15:45航班，最遲12:00出發搭12:05班次，13:40到機場</div>
+</div></div></section>
 
 <div class="div"></div>
 
@@ -239,127 +239,95 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 <div class="dc rv" style="--c:var(--d1)">
 <div class="dh"><div class="dn" style="background:var(--d1)">1</div><div class="di"><h3>✈️ 抵達日 + Donki掃貨</h3><span>8月21日（週五）</span></div><div class="da">▾</div></div>
 <div class="db"><div class="dbc">
-<div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag mn">車廂有冷氣</span><span class="tag lv">Access特急直達淺草橋 ¥1,177</span></div>
+<div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag lv">Access特急直達淺草橋 ¥1,177</span></div>
 <div class="tl" style="--c:var(--d1)">
-<div class="ti"><div class="tt">14:15</div><div class="tn">香港機場T2 起飛 ✈️</div><div class="tds">建議11:15前到達機場辦理值機托運</div></div>
-<div class="ti"><div class="tt">19:45</div><div class="tn">抵達成田機場T2 🛬</div><div class="tds">過關、領行李</div></div>
-<div class="ti"><div class="tt">~20:15</div><div class="tn">搭 Access特急 → 淺草橋站 🚃</div><div class="tds">直達淺草橋！Through-service直通都營淺草線<br>用 Apple Pay Suica 拍卡入閘，唔使排隊買飛<br>車程約1小時39分（連等候＋步行）<br>到淺草橋站出站行幾分鐘到酒店</div></div>
-<div class="ti"><div class="tt">~22:00</div><div class="tn">酒店 Check-in 🏨</div><div class="tds">放低行李</div></div>
-<div class="ti"><div class="tt">22:15</div><div class="tn">Don Quijone 掃防暑日用品 🛒</div><div class="tds">🧊 涼感濕紙巾（救命神器！）<br>🧖‍♀️ 面膜（坐完飛機即刻敷）<br>身體噴霧、零食飲品<br>上野站Central口出步行3分鐘有分店</div></div>
+<div class="ti"><div class="tt">14:15</div><div class="tn">香港機場T2 起飛 ✈️</div></div>
+<div class="ti"><div class="tt">19:45</div><div class="tn">抵達成田機場T2 🛬</div></div>
+<div class="ti"><div class="tt">~20:15</div><div class="tn">搭 Access特急 → 淺草橋站 🚃</div><div class="tds">直達淺草橋！Apple Pay Suica 拍卡入閘<br>車程約1小時39分，出站行幾分鐘到酒店</div></div>
+<div class="ti"><div class="tt">~22:00</div><div class="tn">酒店 Check-in → Donki 掃防暑日用品 🛒</div><div class="tds">🧊 涼感濕紙巾（救命神器！）<br>🧖‍♀️ 面膜（坐完飛機即刻敷）<br>☀️ 防曬霜、身體噴霧、零食飲品<br>上野站Central口出步行3分鐘有分店</div></div>
 <div class="ti"><div class="tt">23:30</div><div class="tn">回酒店休息 💤</div></div>
-</div>
-</div></div>
-</div>
-</div></section>
+</div></div></div></div></div></section>
 
-<!-- DAY 2 — 台場 + 晴空塔 Chiikawa -->
+<!-- DAY 2 -->
 <section id="day2"><div class="container">
 <div class="dc rv" style="--c:var(--d2)">
-<div class="dh"><div class="dn" style="background:var(--d2)">2</div><div class="di"><h3>📺 台場 Fun Rising ＋ 🐱 Chiikawa 晴空塔亮燈</h3><span>8月22日（週六）｜富士電視台活動＋Chiikawa 19:30入場</span></div><div class="da">▾</div></div>
+<div class="dh"><div class="dn" style="background:var(--d2)">2</div><div class="di"><h3>📺 台場 Fun Rising ＋ PUNYUS ＋ 🐱 Chiikawa 晴空塔</h3><span>8月22日（週六）｜富士電視台活動＋PUNYUS晴空塔店＋Chiikawa 19:30入場</span></div><div class="da">▾</div></div>
 <div class="db"><div class="dbc">
 <div class="tags"><span class="tag lv">Fun Rising：7/25–8/23 ✅</span><span class="tag">Fun Rising 門票 ¥2,800 現場買</span><span class="tag mn">Chiikawa 活動門票 ✅ 已買 19:30</span><span class="tag yw">亮燈 19:15–0:00｜100秒轉一次色</span></div>
 <div class="tl" style="--c:var(--d2)">
-<div class="ti"><div class="tt">09:00</div><div class="tn">📱 LINE App 排隊搶 Fun Rising 時段</div><div class="tds">08:55開定App，9:00準時撳<br>搶到靚時段就可以慢慢出門</div></div>
-<div class="ti"><div class="tt">09:30</div><div class="tn">確認時段 → 出發去台場 🚃</div><div class="tds">都營大江戶線 → 汐留 → 百合海鷗號 → 台場（約35分鐘）</div></div>
-<div class="ti"><div class="tt">10:00</div><div class="tn">台場 Fun Rising 開場 📺✨</div><div class="tds"><strong>富士電視台總部大樓</strong><br>25樓八玉觀景台＋24樓＋22樓<br>人氣角色限定精品、美食、體驗活動<br>各種限定精品掃貨 🎁</div></div>
-<div class="ti"><div class="tt">12:30</div><div class="tn">午餐 🍽️</div><div class="tds">台場 Aqua City / DiverCity 內多間餐廳</div></div>
-<div class="ti"><div class="tt">14:00</div><div class="tn">繼續逛 Fun Rising ＋ 台場 🏖️</div><div class="tds">活動場內慢慢逛<br>之後行台場海濱公園、DiverCity（獨角獸高達）</div></div>
-<div class="ti"><div class="tt">17:30</div><div class="tn">台場夕陽 🌅</div><div class="tds">海濱公園睇日落＋彩虹大橋影相 🌈</div></div>
+<div class="ti"><div class="tt">09:00</div><div class="tn">📱 LINE App 排隊搶 Fun Rising 時段</div><div class="tds">08:55開定App，9:00準時撳</div></div>
+<div class="ti"><div class="tt">09:30</div><div class="tn">確認時段 → 出發去台場 🚃</div><div class="tds">百合海鷗號 → 台場（約35分鐘）</div></div>
+<div class="ti"><div class="tt">10:00</div><div class="tn">台場 Fun Rising 開場 📺✨</div><div class="tds">富士電視台總部大樓｜人氣角色限定精品＋美食＋體驗</div></div>
+<div class="ti"><div class="tt">12:30</div><div class="tn">午餐 🍽️</div><div class="tds">台場 Aqua City / DiverCity</div></div>
+<div class="ti"><div class="tt">14:00</div><div class="tn">繼續逛 Fun Rising ＋ 台場 🏖️</div></div>
+<div class="ti"><div class="tt">17:30</div><div class="tn">台場夕陽 🌅</div><div class="tds">海濱公園睇日落＋彩虹大橋影相</div></div>
 <div class="ti"><div class="tt">18:30</div><div class="tn">離開台場 → 出發去押上 🚃</div><div class="tds">百合海鷗號 → 新橋 → 地鐵 → 押上站（約50分鐘）</div></div>
-<div class="ti"><div class="tt">~19:15</div><div class="tn">抵達晴空塔 🗼 亮燈開始！</div><div class="tds">🐱 Chiikawa × 晴空塔聯乘亮燈<br>每 <strong>100秒轉一次燈色</strong>！<br>先喺吾妻橋／隅田川河邊影相</div></div>
-<div class="ti"><div class="tt">19:30</div><div class="tn">🐱 Chiikawa 活動入場（已買飛 ✅）</div><div class="tds">入場逛展覽＋周邊</div></div>
-<div class="ti"><div class="tt">20:15</div><div class="tn">🎬 睇小影片</div><div class="tds">Chiikawa 特別影片放映</div></div>
-<div class="ti"><div class="tt">20:45</div><div class="tn">Solamachi 晴空街道行周邊 🎁</div><div class="tds">Pop-up Shop 掃限定精品<br>⚠️ 商場21:00關門，行完周邊先</div></div>
-<div class="ti"><div class="tt">21:00</div><div class="tn">出嚟再睇亮燈 ＋ 影相 📸</div><div class="tds">每100秒轉一次色，慢慢影<br>亮燈持續到0:00</div></div>
+<div class="ti"><div class="tt">~19:15</div><div class="tn">抵達晴空塔 🗼 Chiikawa亮燈開始！</div><div class="tds">每 <strong>100秒轉一次燈色</strong>！先喺吾妻橋影相</div></div>
+<div class="ti"><div class="tt">19:30</div><div class="tn">🐱 Chiikawa 活動入場（已買飛 ✅）</div></div>
+<div class="ti"><div class="tt">20:15</div><div class="tn">🎬 睇小影片</div></div>
+<div class="ti"><div class="tt">20:40</div><div class="tn">👗 PUNYUS 晴空塔店 + Solamachi行周邊</div><div class="tds"><strong>PUNYUS 東京スカイツリータウン・ソラマチ店</strong><br>Solamachi 3F（Tower Yard 5番地）<br>日系少女風大碼女裝！10:00–21:00<br>⚠️ 商場21:00關門，抓緊時間！</div></div>
+<div class="ti"><div class="tt">21:00</div><div class="tn">出嚟再睇亮燈影相 📸</div><div class="tds">亮燈持續到0:00，慢慢影</div></div>
 <div class="ti"><div class="tt">21:30</div><div class="tn">晴空塔附近晚餐 🍽️</div></div>
 <div class="ti"><div class="tt">~22:30</div><div class="tn">回酒店 🏨</div></div>
-</div>
-<h4 style="font-size:12px;font-weight:700;margin:12px 0 6px">📺 Fun Rising 活動資訊</h4>
-<div class="table-wrap"><table class="rt">
-<tr><th>項目</th><th>詳情</th></tr>
-<tr><td>日期</td><td>2026/7/25（六）– 8/23（日）共30天</td></tr>
-<tr><td>時間</td><td>10:00–18:00（最後入場17:30）</td></tr>
-<tr><td>地點</td><td>富士電視台總部大樓</td></tr>
-<tr><td>門票</td><td>普通 ¥2,800 / 中小學生 ¥2,500（LINE排隊搶時段）</td></tr>
-</table></div>
-<h4 style="font-size:12px;font-weight:700;margin:12px 0 6px">🐱 Chiikawa × 晴空塔</h4>
-<div class="table-wrap"><table class="rt">
-<tr><th>項目</th><th>詳情</th></tr>
-<tr><td>亮燈</td><td>19:15–0:00｜每100秒轉一次燈色</td></tr>
-<tr><td>活動入場</td><td>19:30 ✅ 已買飛</td></tr>
-<tr><td>小影片</td><td>20:15 開始</td></tr>
-<tr><td>Cafe</td><td>已滿額，唔入都OK，睇亮燈＋行周邊已經好正</td></tr>
-</table></div>
-</div></div>
-</div>
-</div></section>
+</div></div></div></div></div></section>
 
-<!-- DAY 3 — 三麗鷗彩虹樂園 -->
+<!-- DAY 3 -->
 <section id="day3"><div class="container">
 <div class="dc rv" style="--c:var(--d3)">
-<div class="dh"><div class="dn" style="background:var(--d3)">3</div><div class="di"><h3>🎀 三麗鷗彩虹樂園</h3><span>8月23日（週日）｜🍮Coco布甸狗 × 🐶Yan肉桂狗 主題日｜門票 ✅</span></div><div class="da">▾</div></div>
+<div class="dh"><div class="dn" style="background:var(--d3)">3</div><div class="di"><h3>🎀 三麗鷗彩虹樂園</h3><span>8月23日（週日）｜🍮Coco布甸狗 × 🐶Yan肉桂狗｜門票 ✅</span></div><div class="da">▾</div></div>
 <div class="db"><div class="dbc">
-<div class="tags"><span class="tag mn">三麗鷗門票 ✅ 已買</span><span class="tag lv">全室內冷氣</span><span class="tag yw">Dress Code ✅ 已準備</span></div>
-<h4 style="font-size:13px;font-weight:700;margin:12px 0 6px">🎀 Dress Code</h4>
+<div class="tags"><span class="tag mn">三麗鷗門票 ✅</span><span class="tag lv">全室內冷氣</span><span class="tag yw">Dress Code ✅</span></div>
 <div class="split">
-<div class="sb"><h4>🍮 Coco — 布甸狗主題</h4><ul><li>黃色 / 奶茶色系 🟡</li><li>Pompompurin 周邊配搭</li><li>布甸狗 Tote bag 或帽</li></ul></div>
-<div class="sb"><h4>🐶 Yan — 肉桂狗主題</h4><ul><li>白色 / 淺藍色系 🤍</li><li>Cinnamoroll 周邊配搭</li><li>肉桂狗 Tote bag 或帽</li></ul></div>
+<div class="sb"><h4>🍮 Coco — 布甸狗主題</h4><ul><li>黃色 / 奶茶色系 🟡</li><li>Pompompurin 周邊配搭</li></ul></div>
+<div class="sb"><h4>🐶 Yan — 肉桂狗主題</h4><ul><li>白色 / 淺藍色系 🤍</li><li>Cinnamoroll 周邊配搭</li></ul></div>
 </div>
 <div class="tl" style="--c:var(--d3)">
-<div class="ti"><div class="tt">10:30</div><div class="tn">淺草橋出發 🚃</div><div class="tds">地鐵 → 京王線 → 多摩Centre站（約1小時）</div></div>
-<div class="ti"><div class="tt">11:30</div><div class="tn">抵達三麗鷗彩虹樂園 🎀🌟</div><div class="tds">入場後先食<strong>布甸狗咖喱飯</strong>做午餐 🍛</div></div>
-<div class="ti"><div class="tt">12:00</div><div class="tn">慢慢逛園區 📸</div><div class="tds">Hello Kitty、Cinnamoroll打卡、睇表演、掃限定精品<br>🍮 Coco布甸狗 × 🐶 Yan肉桂狗 合照！<br>全室內，冷氣充足</div></div>
-<div class="ti"><div class="tt">~17:00</div><div class="tn">散場回程 🚃</div><div class="tds">返淺草橋</div></div>
-<div class="ti"><div class="tt">18:30</div><div class="tn">晚餐 🍽️</div><div class="tds">東京市區隨意搵食</div></div>
-</div>
-</div></div>
-</div>
-</div></section>
+<div class="ti"><div class="tt">10:30</div><div class="tn">淺草橋出發 → 多摩Centre 🚃</div></div>
+<div class="ti"><div class="tt">11:30</div><div class="tn">三麗鷗彩虹樂園 🎀🌟</div><div class="tds">午餐食布甸狗咖喱飯 🍛</div></div>
+<div class="ti"><div class="tt">12:00–17:00</div><div class="tn">慢慢逛園區 📸</div><div class="tds">打卡、睇表演、掃限定精品<br>🍮🐶 合照！全室內冷氣充足</div></div>
+<div class="ti"><div class="tt">~17:00</div><div class="tn">散場 → 回淺草橋</div></div>
+<div class="ti"><div class="tt">18:30</div><div class="tn">晚餐 🍽️</div></div>
+</div></div></div></div></div></section>
 
-<!-- DAY 4 — 熱海花火 -->
+<!-- DAY 4 -->
 <section id="day4"><div class="container">
 <div class="dc rv" style="--c:var(--d4)">
 <div class="dh"><div class="dn" style="background:var(--d4)">4</div><div class="di"><h3>🎆 熱海一日遊：箱根＋蘆之湖＋花火大會</h3><span>8月24日（週一）｜花火 20:15–20:40 ✅ ｜👗 白色長裙</span></div><div class="da">▾</div></div>
 <div class="db"><div class="dbc">
-<div class="tags"><span class="tag pc">🎆 花火 20:15–20:40 ✅</span><span class="tag">一日遊團 ✅ 已買</span><span class="tag yw">👗 Dress Code ✅ 已準備</span></div>
+<div class="tags"><span class="tag pc">🎆 花火 20:15–20:40 ✅</span><span class="tag">一日遊團 ✅</span><span class="tag yw">👗 白色長裙 ✅</span></div>
 <div class="tl" style="--c:var(--d4)">
-<div class="ti"><div class="tt">早上</div><div class="tn">跟團出發 → 箱根 🚌</div></div>
-<div class="ti"><div class="tt">上午</div><div class="tn">箱根觀光 🏔️</div><div class="tds">白色長裙行箱根好飄逸 📸</div></div>
-<div class="ti"><div class="tt">下午</div><div class="tn">蘆之湖遊船 ⛴️</div><div class="tds">湖上風光，天氣好可以望到富士山 🗻<br>白色長裙湖邊影相超靚！✨</div></div>
-<div class="ti"><div class="tt">傍晚</div><div class="tn">轉場熱海 🌅</div><div class="tds">如有自由時間行商店街、買熱海布丁 🍮</div></div>
-<div class="ti"><div class="tt">20:15</div><div class="tn">🎆 熱海海上花火大會 🎆</div><div class="tds">壓軸「大空中尼加拉」銀色煙火佈滿整個天空 🌠<br><strong>👗 白色長裙喺花火光芒下超夢幻！</strong></div></div>
+<div class="ti"><div class="tt">早上</div><div class="tn">跟團 → 箱根觀光 🏔️</div><div class="tds">白色長裙行箱根好飄逸 📸</div></div>
+<div class="ti"><div class="tt">下午</div><div class="tn">蘆之湖遊船 ⛴️</div><div class="tds">天氣好可望富士山 🗻</div></div>
+<div class="ti"><div class="tt">傍晚</div><div class="tn">轉場熱海 🌅</div><div class="tds">行商店街、買熱海布丁 🍮</div></div>
+<div class="ti"><div class="tt">20:15</div><div class="tn">🎆 熱海海上花火大會 🎆</div><div class="tds">壓軸「大空中尼加拉」銀色煙火佈滿天空 🌠<br>👗 白色長裙喺花火下超夢幻！</div></div>
 <div class="ti"><div class="tt">20:40</div><div class="tn">花火結束 → 回程 🚌</div></div>
-</div>
-<div class="tags"><span class="tag hot">必帶：野餐墊</span><span class="tag hot">必帶：小風扇</span><span class="tag hot">必帶：充電寶</span></div>
-</div></div>
-</div>
-</div></section>
+</div></div></div></div></div></section>
 
-<!-- DAY 5 — 淺草寺 + 池袋 Shopping + Chiikawa Park + Yakiniku ABURU -->
+<!-- DAY 5 — 超級Shopping日 -->
 <section id="day5"><div class="container">
 <div class="dc rv" style="--c:var(--d5)">
-<div class="dh"><div class="dn" style="background:var(--d5)">5</div><div class="di"><h3>⛩️ 淺草寺 + 池袋 Shopping + 🐱 Chiikawa Park + 🥩 Yakiniku ABURU</h3><span>8月25日（週二）｜買衫買內衣＋Chiikawa Park＋燒肉晚餐</span></div><div class="da">▾</div></div>
+<div class="dh"><div class="dn" style="background:var(--d5)">5</div><div class="di"><h3>🛍️ 池袋超級Shopping日 ＋ 🐱 Chiikawa Park ＋ 🥩 燒肉</h3><span>8月25日（週二）｜淺草寺＋池袋全面掃貨＋Chiikawa Park＋Yakiniku ABURU</span></div><div class="da">▾</div></div>
 <div class="db"><div class="dbc">
-<div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag mn">Chiikawa Park 門票 ✅ 已買 16:00</span><span class="tag lv">唔使趕，10點先出門</span></div>
+<div class="tags"><span class="tag">Apple Pay Suica</span><span class="tag mn">Chiikawa Park 門票 ✅ 16:00</span><span class="tag lv">唔使趕，10點先出門</span><span class="tag yw">池袋Chiikawa Pocket POP UP 8/21–9/23！</span></div>
 <div class="tl" style="--c:var(--d5)">
-<div class="ti"><div class="tt">10:00</div><div class="tn">出發去淺草 ⛩️</div><div class="tds">淺草橋 → 淺草站（1站，2分鐘）<br>去過好多次，輕鬆行一圈就得</div></div>
-<div class="ti"><div class="tt">10:15</div><div class="tn">淺草寺 + 仲見世通快逛</div><div class="tds">雷門打卡 📸 → 仲見世通買手信 → 淺草寺參拜</div></div>
-<div class="ti"><div class="tt">11:00</div><div class="tn">淺草食早午餐 🍜</div><div class="tds">一蘭拉麵 / 淺草メンチ（炸肉餅）/ CoCo壱番屋</div></div>
+<div class="ti"><div class="tt">10:00</div><div class="tn">出發去淺草 ⛩️</div><div class="tds">淺草橋 → 淺草站（1站，2分鐘）｜去過好多次，快逛一圈</div></div>
+<div class="ti"><div class="tt">10:15</div><div class="tn">淺草寺 + 仲見世通快逛</div></div>
+<div class="ti"><div class="tt">11:00</div><div class="tn">淺草早午餐 🍜</div></div>
 <div class="ti"><div class="tt">11:30</div><div class="tn">出發去池袋 🚃</div><div class="tds">淺草 → 池袋（地鐵約20分鐘）</div></div>
-<div class="ti"><div class="tt">12:00–16:00</div><div class="tn">池袋 Shopping 🛍️👗👙</div><div class="tds">
-<strong>買內衣 👙</strong> — Uniqlo池袋東口店（日版內衣好著）、GU<br>
-<strong>買衫 👗</strong> — Sunshine City、東武百貨、PARCO<br>
-<strong>Coco 📚</strong> — Animate BL區、乙女路、Mandarake、K-Books<br>
-<strong>周圍行吓有咩好𢓁</strong> — 池袋本身就超多嘢行，隨心逛
-</div></div>
-<div class="ti"><div class="tt">16:00</div><div class="tn">🐱 Chiikawa Park 入場（已買飛 ✅）</div><div class="tds"><strong>Chiikawa Park</strong>｜Sunshine City Annex B1F・1F<br>1.5–2小時，慢慢行慢慢影<br>場內只收信用卡/IC卡/電子支付，唔收現金！</div></div>
+<div class="ti"><div class="tt">12:00</div><div class="tn">👙 西武百貨 內衣樓層</div><div class="tds"><strong>PEACH JOHN</strong> 專櫃 — 日系甜美少女風，大碼到I/J Cup<br><strong>NARUE</strong> 專櫃 — 蕾絲蝴蝶結少女風，大碼到I Cup<br>💡 請SA幫忙度身建議 80G/75H，試身室超舒服<br>買3件以上通常有折</div></div>
+<div class="ti"><div class="tt">13:00</div><div class="tn">池袋午餐 🍽️</div></div>
+<div class="ti"><div class="tt">13:30</div><div class="tn">📚 Animate池袋本店 + Mandarake</div><div class="tds">Coco掃BL漫畫＋乙女路<br>Yan周圍行吓</div></div>
+<div class="ti"><div class="tt">14:00</div><div class="tn">👗 Taberunosky（タベルノスキー）</div><div class="tds">東池袋3-7-7 イーストテラスビル 4樓<br>日系浪漫少女風女裝</div></div>
+<div class="ti"><div class="tt">14:20</div><div class="tn">🐱 Chiikawa Pocket POP UP（池袋PARCO 6F）</div><div class="tds"><strong>快閃期：8/21–9/23 ✅ 咁啱你哋去到有！</strong><br>池袋PARCO本館6樓（0% IKEBUKURO）<br>恐龍＋愛麗絲夢遊仙境全新主題<br>極限量官方周邊！</div></div>
+<div class="ti"><div class="tt">14:45</div><div class="tn">行去Sunshine City 🏢</div><div class="tds">PARCO → Sunshine City 約5分鐘</div></div>
+<div class="ti"><div class="tt">15:00</div><div class="tn">👗 SUPURE（Sunshine City alpa 1F）</div><div class="tds">東京都豐島區東池袋3-1-1｜alpa 1樓</div></div>
+<div class="ti"><div class="tt">15:15</div><div class="tn">💊 藥妝 ＋ 🏪 3Coins/100円店</div><div class="tds">Sunshine City 內有大型Daiso + 3COINS<br>藥妝店（Welcia/Sundrug）<br>Loft（生活雜貨＋文具）</div></div>
+<div class="ti"><div class="tt">15:45</div><div class="tn">行去 Sunshine City Annex 🚶‍♀️</div><div class="tds">同一個建築群，行過去2–3分鐘</div></div>
+<div class="ti"><div class="tt">16:00</div><div class="tn">🐱 Chiikawa Park 入場（已買飛 ✅）</div><div class="tds">Sunshine City Annex B1F・1F<br>1.5–2小時，慢慢行慢慢影<br>⚠️ 場內只收信用卡/IC卡/電子支付</div></div>
 <div class="ti"><div class="tt">~18:00</div><div class="tn">散場</div></div>
-<div class="ti"><div class="tt">18:30</div><div class="tn">🥩 Yakiniku ABURU 池袋店 晚餐</div><div class="tds">高質燒肉，晚餐時段體驗更佳！<br>100%唔會有魚 🤤</div></div>
+<div class="ti"><div class="tt">18:30</div><div class="tn">🥩 Yakiniku ABURU 池袋店 晚餐</div><div class="tds">高質燒肉，晚餐時段體驗更佳！100%冇魚 🤤</div></div>
 <div class="ti"><div class="tt">20:00</div><div class="tn">回酒店 🏨</div><div class="tds">池袋 → 淺草橋（JR約25分鐘）</div></div>
-</div>
-</div></div>
-</div>
-</div></section>
+</div></div></div></div></div></section>
 
 <!-- DAY 6 -->
 <section id="day6"><div class="container">
@@ -368,18 +336,13 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 <div class="db"><div class="dbc">
 <div class="tags"><span class="tag">動物園門票 ¥600 現場買</span><span class="tag mn">最輕鬆嘅一日 😌</span></div>
 <div class="tl" style="--c:var(--d6)">
-<div class="ti"><div class="tt">09:00</div><div class="tn">淺草橋出發 → 上野 🚃</div><div class="tds">JR至秋葉原 → JR山手線至上野（約15分鐘）</div></div>
+<div class="ti"><div class="tt">09:00</div><div class="tn">淺草橋 → 上野 🚃</div></div>
 <div class="ti"><div class="tt">09:30</div><div class="tn">上野動物園 🐼🐨</div><div class="tds">先去睇<strong>Pankichi</strong>避開人潮（2–3小時）</div></div>
-<div class="ti"><div class="tt">12:00</div><div class="tn">阿美橫町 🛍️</div><div class="tds">行街＋午餐：燒肉、炸豬排、水果攤</div></div>
-<div class="ti"><div class="tt">13:30</div><div class="tn">上野公園散步 🌳</div></div>
-<div class="ti"><div class="tt">14:30</div><div class="tn">出發去秋葉原（JR一站）🎮</div><div class="tds">Animate、Mandarake、扭蛋、電器<br>動漫周邊最後掃貨</div></div>
-<div class="ti"><div class="tt">16:00</div><div class="tn">最後藥妝補貨 💊</div><div class="tds">松本清、Sundrug</div></div>
-<div class="ti"><div class="tt">17:00</div><div class="tn">返酒店整理行李 🧳</div><div class="tds">第二日要checkout！</div></div>
+<div class="ti"><div class="tt">12:00</div><div class="tn">阿美橫町 🛍️</div><div class="tds">行街＋午餐＋藥妝最後補貨（OS Drug最平！）</div></div>
+<div class="ti"><div class="tt">14:30</div><div class="tn">秋葉原（JR一站）🎮</div><div class="tds">Animate、Mandarake、扭蛋、電器</div></div>
+<div class="ti"><div class="tt">17:00</div><div class="tn">返酒店整理行李 🧳</div></div>
 <div class="ti"><div class="tt">18:30</div><div class="tn">最後一晚晚餐 🍽️🥂</div></div>
-</div>
-</div></div>
-</div>
-</div></section>
+</div></div></div></div></div></section>
 
 <!-- DAY 7 -->
 <section id="day7"><div class="container">
@@ -388,205 +351,271 @@ footer{text-align:center;padding:32px var(--pad);border-top:1px solid rgba(74,65
 <div class="db"><div class="dbc">
 <div class="tags"><span class="tag lv">Access特急直達成田 ¥1,177</span><span class="tag hot">最遲12:00出發！</span></div>
 <div class="tl" style="--c:var(--d7)">
-<div class="ti"><div class="tt">09:00</div><div class="tn">起身，收拾行李 🧳</div></div>
-<div class="ti"><div class="tt">10:00</div><div class="tn">辦理 Checkout 🏨</div><div class="tds">行李寄存酒店前台</div></div>
-<div class="ti"><div class="tt">10:15</div><div class="tn">最後掃貨 🛒💊</div><div class="tds">淺草橋附近商店街、藥妝店最後補貨</div></div>
+<div class="ti"><div class="tt">09:00</div><div class="tn">起身收拾行李 🧳</div></div>
+<div class="ti"><div class="tt">10:00</div><div class="tn">Checkout 🏨 行李寄存前台</div></div>
+<div class="ti"><div class="tt">10:15</div><div class="tn">淺草橋附近最後掃貨 🛒</div></div>
 <div class="ti"><div class="tt">11:30</div><div class="tn">最後一餐 Lunch 🍜</div></div>
-<div class="ti"><div class="tt">12:00</div><div class="tn">返酒店拎行李</div></div>
-<div class="ti"><div class="tt">12:05</div><div class="tn">淺草橋站 → Access特急 → 成田機場 🚃</div><div class="tds">直達！唔使轉車<br>¥1,177｜約1小時39分<br>13:40左右到達成田機場T2</div></div>
-<div class="ti"><div class="tt">~13:40</div><div class="tn">抵達成田機場 ✈️</div><div class="tds">值機＋安檢</div></div>
-<div class="ti"><div class="tt">14:30</div><div class="tn">免稅店最後掃貨 🎁</div><div class="tds">東京Banana、白色戀人、薯條三兄弟...</div></div>
-<div class="ti"><div class="tt">15:45</div><div class="tn">✈️ 航班起飛</div><div class="tds">UO849 → 香港</div></div>
-<div class="ti"><div class="tt">19:40</div><div class="tn">🏠 抵達香港</div><div class="tds">帶住滿滿回憶同戰利品返屋企！✨</div></div>
-</div>
-</div></div>
-</div>
-</div></section>
+<div class="ti"><div class="tt">12:05</div><div class="tn">淺草橋站 → Access特急 → 成田 🚃</div><div class="tds">¥1,177｜約1小時39分｜13:40到機場T2</div></div>
+<div class="ti"><div class="tt">14:30</div><div class="tn">免稅店最後掃貨 🎁</div></div>
+<div class="ti"><div class="tt">15:45</div><div class="tn">✈️ 起飛 → 19:40 抵達香港 🏠</div></div>
+</div></div></div></div></div></section>
 
 <div class="div"></div>
 
-<!-- 美食推薦 -->
-<section id="food"><div class="container">
-<div class="sl">🍜 美食推薦</div>
-<h2 class="st">唔食魚都食到飽！ 🤤</h2>
-<p class="sd">全部係非海鮮選擇，拉麵、燒肉、咖喱、洋食樣樣有。</p>
-<div class="food-grid rv">
-<div class="food-card"><h4>🍜 拉麵</h4><div class="fc-sub">到處都有，最安全嘅選擇</div><div class="food-item"><span class="food-name">無敵家</span><span class="food-detail">池袋｜濃厚豚骨名店</span></div><div class="food-item"><span class="food-name">AFURI</span><span class="food-detail">原宿｜柚子鹽拉麵</span></div><div class="food-item"><span class="food-name">一蘭</span><span class="food-detail">淺草｜經典豚骨24小時</span></div></div>
-<div class="food-card"><h4>🍛 咖喱</h4><div class="fc-sub">日式咖喱百搭唔伏</div><div class="food-item"><span class="food-name">CoCo壱番屋</span><span class="food-detail">全區連鎖｜自選辣度配料</span></div><div class="food-item"><span class="food-name">Go!Go!Curry</span><span class="food-detail">秋葉原｜黑咖喱份量大</span></div></div>
-<div class="food-card"><h4>🥩 燒肉</h4><div class="fc-sub">100%唔會有魚！</div><div class="food-item"><span class="food-name">Yakiniku ABURU</span><span class="food-detail">池袋｜Day 5 晚餐 🌟</span></div><div class="food-item"><span class="food-name">敘敘苑</span><span class="food-detail">池袋｜高級燒肉午市抵食</span></div><div class="food-item"><span class="food-name">牛角</span><span class="food-detail">全區連鎖｜平價放題</span></div></div>
-<div class="food-card"><h4>🍖 洋食 &amp; 牛丼</h4><div class="fc-sub">快速方便</div><div class="food-item"><span class="food-name">松屋/吉野家/すき家</span><span class="food-detail">全區｜牛丼三巨頭¥400有找</span></div><div class="food-item"><span class="food-name">ガスト/ジョナサン</span><span class="food-detail">全區｜漢堡排蛋包飯</span></div></div>
-<div class="food-card"><h4>🍡 甜品</h4><div class="fc-sub">打卡able 📸</div><div class="food-item"><span class="food-name">熱海プリン</span><span class="food-detail">熱海｜手工布甸 🍮</span></div><div class="food-item"><span class="food-name">Pablo芝士撻</span><span class="food-detail">多區｜流心芝士撻</span></div><div class="food-item"><span class="food-name">便利店甜品</span><span class="food-detail">Lawson/7-11｜意外高質</span></div></div>
-<div class="food-card"><h4>🏪 便利店必試</h4><div class="fc-sub">唔好睇小！</div><div class="food-item"><span class="food-name">唐揚げ</span><span class="food-detail">Lawson即炸超正 🍗</span></div><div class="food-item"><span class="food-name">飯糰</span><span class="food-detail">明太子/梅/炸雞避開鮭魚</span></div><div class="food-item"><span class="food-name">抹茶甜品</span><span class="food-detail">7-11限定必試 🍵</span></div></div>
-</div>
-</div></section>
-
-<div class="div"></div>
-
-<!-- 必買推薦 -->
+<!-- SHOPPING GUIDE -->
 <section id="shop"><div class="container">
-<div class="sl">🛒 必買推薦</div>
-<h2 class="st">掃貨指南 🛍️</h2>
-<p class="sd">藥妝、零食、周邊、內衣，買到你唔想拎 🤩</p>
+<div class="sl">🛍️ Shopping Guide</div><h2 class="st">池袋全面掃貨地圖 🗺️</h2><p class="sd">所有店舖集中在池袋東口一帶，步行可達。</p>
+
+<!-- 內衣 -->
 <div class="buy-cat rv">
-<h4>💊 藥妝</h4>
+<h4>👙 少女風大碼內衣（80G / 75H）</h4>
 <div class="buy-grid">
-<div class="buy-item"><div class="buy-emoji">🧊</div><div class="buy-info"><div class="buy-name">花王 涼感濕紙巾</div><div class="buy-desc">8月救命神器</div><div class="buy-tag">約¥200–400</div></div></div>
-<div class="buy-item"><div class="buy-emoji">💦</div><div class="buy-info"><div class="buy-name">Deonatulle 止汗石</div><div class="buy-desc">日本No.1止汗產品</div><div class="buy-tag">約¥800</div></div></div>
-<div class="buy-item"><div class="buy-emoji">☀️</div><div class="buy-info"><div class="buy-name">Anessa / Allie 防曬霜</div><div class="buy-desc">日本防曬天花板</div><div class="buy-tag">約¥2,000–3,000</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🧖‍♀️</div><div class="buy-info"><div class="buy-name">面膜</div><div class="buy-desc">肌美精/Minon/Quality 1st</div><div class="buy-tag">約¥500–1,000</div></div></div>
-<div class="buy-item"><div class="buy-emoji">💋</div><div class="buy-info"><div class="buy-name">CANMAKE / CEZANNE</div><div class="buy-desc">日本開架彩妝超值</div><div class="buy-tag">約¥500–800</div></div></div>
-<div class="buy-item"><div class="buy-emoji">😷</div><div class="buy-info"><div class="buy-name">龍角散</div><div class="buy-desc">喉嚨不適必備</div><div class="buy-tag">約¥700</div></div></div>
-</div></div>
+<div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">PEACH JOHN（ピーチ・ジョン）</div><div class="buy-desc">日本最受歡迎少女內衣品牌，甜美設計，大碼到I/J Cup<br>📍 西武百貨 內衣樓層專櫃</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🌸</div><div class="buy-info"><div class="buy-name">NARUE（ナルエー）</div><div class="buy-desc">蕾絲蝴蝶結少女風，大碼專門「Leisure」系列到I Cup<br>📍 西武百貨 內衣樓層專櫃</div></div></div>
+</div>
+<p style="font-size:11px;color:var(--txm);margin-top:6px">💡 請SA幫忙度身建議尺碼，試身室好舒服，買3件以上通常有折</p>
+</div>
+
+<!-- 買衫 -->
 <div class="buy-cat rv">
-<h4>👙 內衣 &amp; 衫褲（Day 5 池袋）</h4>
+<h4>👗 買衫</h4>
 <div class="buy-grid">
-<div class="buy-item"><div class="buy-emoji">👙</div><div class="buy-info"><div class="buy-name">Uniqlo AIRism 內衣</div><div class="buy-desc">日版剪裁好著，涼感面料夏天必備</div><div class="buy-tag">池袋東口店</div></div></div>
-<div class="buy-item"><div class="buy-emoji">👚</div><div class="buy-info"><div class="buy-name">GU</div><div class="buy-desc">平價版Uniqlo，內衣衫褲都抵買</div><div class="buy-tag">池袋有分店</div></div></div>
-<div class="buy-item"><div class="buy-emoji">👗</div><div class="buy-info"><div class="buy-name">池袋百貨/Sunshine City</div><div class="buy-desc">周圍行吓睇有咩好𢓁</div><div class="buy-tag">東武百貨/PARCO</div></div></div>
-</div></div>
+<div class="buy-item"><div class="buy-emoji">✨</div><div class="buy-info"><div class="buy-name">SUPURE</div><div class="buy-desc">📍 Sunshine City alpa 1F<br>東京都豐島區東池袋3-1-1</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">PUNYUS</div><div class="buy-desc">大碼友善＋Y2K少女風<br>📍 Day 2: Solamachi 3F（晴空塔店）<br>10:00–21:00｜+81 3-5819-0283</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🌸</div><div class="buy-info"><div class="buy-name">Taberunosky（タベルノスキー）</div><div class="buy-desc">日系浪漫少女風女裝<br>📍 東池袋3-7-7 イーストテラスビル 4F</div></div></div>
+</div>
+</div>
+
+<!-- Loft -->
 <div class="buy-cat rv">
-<h4>🍫 零食手信</h4>
+<h4>🏠 Loft ＋ 生活雜貨</h4>
 <div class="buy-grid">
-<div class="buy-item"><div class="buy-emoji">🍌</div><div class="buy-info"><div class="buy-name">東京Banana</div><div class="buy-desc">東京No.1手信</div><div class="buy-tag">機場有賣</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🍟</div><div class="buy-info"><div class="buy-name">薯條三兄弟</div><div class="buy-desc">北海道名物</div><div class="buy-tag">機場有賣</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🍫</div><div class="buy-info"><div class="buy-name">Royce 生朱古力</div><div class="buy-desc">入口即化</div><div class="buy-tag">機場有賣</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🍬</div><div class="buy-info"><div class="buy-name">Kit Kat 限定口味</div><div class="buy-desc">抹茶、焙茶、日本酒</div><div class="buy-tag">Donki/機場</div></div></div>
-</div></div>
+<div class="buy-item"><div class="buy-emoji">📝</div><div class="buy-info"><div class="buy-name">Loft 池袋店</div><div class="buy-desc">文具、生活雜貨、美妝、收納<br>和紙膠帶、限定手帳、特色文具<br>📍 西武百貨附近</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🪙</div><div class="buy-info"><div class="buy-name">3COINS+plus</div><div class="buy-desc">300円精緻生活小物、飾品、收納<br>📍 Sunshine City 內有大型分店</div></div></div>
+</div>
+</div>
+
+<!-- 100円店 -->
 <div class="buy-cat rv">
-<h4>🎀 動漫周邊 &amp; 特色手信</h4>
+<h4>🏪 100円店（Seria / Daiso / Can★Do）</h4>
 <div class="buy-grid">
-<div class="buy-item"><div class="buy-emoji">📺</div><div class="buy-info"><div class="buy-name">Fun Rising 限定精品</div><div class="buy-desc">富士電視台角色活動獨家</div><div class="buy-tag">Day 2 台場</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🐱</div><div class="buy-info"><div class="buy-name">Chiikawa × 晴空塔 限定</div><div class="buy-desc">Solamachi Pop-up Shop</div><div class="buy-tag">Day 2 晴空塔</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">三麗鷗 Puroland 限定</div><div class="buy-desc">樂園獨家精品</div><div class="buy-tag">Day 3 園內</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🐱</div><div class="buy-info"><div class="buy-name">Chiikawa Park 限定周邊</div><div class="buy-desc">Sunshine City Annex</div><div class="buy-tag">Day 5 池袋</div></div></div>
-<div class="buy-item"><div class="buy-emoji">📚</div><div class="buy-info"><div class="buy-name">BL漫畫 / 周邊</div><div class="buy-desc">Animate池袋本店BL區最齊</div><div class="buy-tag">Day 5 池袋</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🍊</div><div class="buy-info"><div class="buy-name">熱海蜜柑醬 / 蒲鉾</div><div class="buy-desc">熱海名物</div><div class="buy-tag">Day 4 熱海</div></div></div>
-<div class="buy-item"><div class="buy-emoji">🎰</div><div class="buy-info"><div class="buy-name">扭蛋</div><div class="buy-desc">秋葉原扭蛋大樓</div><div class="buy-tag">Day 6 秋葉原</div></div></div>
-</div></div>
+<div class="buy-item"><div class="buy-emoji">🌸</div><div class="buy-info"><div class="buy-name">Seria</div><div class="buy-desc">夢幻文青風｜透明感收納盒、復古紙膠帶、追星小卡保護套</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🏪</div><div class="buy-info"><div class="buy-name">Daiso</div><div class="buy-desc">種類最齊｜壓縮毛巾、手機掛繩夾片、矽膠面罩、粉撲清洗劑</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">Can★Do</div><div class="buy-desc">常有動漫聯名｜夏日祭典指甲貼紙、噴霧式分裝瓶</div></div></div>
+</div>
+<p style="font-size:11px;color:var(--txm);margin-top:6px">📍 Sunshine City內有大型Daiso｜如想去銀座旗艦店（Daiso+Standard Products+THREEPPY+3COINS一站式）Day 6上野之後可以去</p>
+</div>
 </div></section>
+
+<div class="div"></div>
+
+<!-- 藥妝 -->
+<section id="drug"><div class="container">
+<div class="sl">💊 藥妝攻略</div><h2 class="st">2026夏季限定！涼感抗汗美妝 🧊</h2><p class="sd">唔要普通嘢，要搶2026夏季限定＋高CP值神物。</p>
+
+<h4 style="font-size:14px;font-weight:700;margin-bottom:12px">🧊 涼感控油・夏季限定彩妝保養</h4>
+<div class="buy-grid rv">
+<div class="buy-item"><div class="buy-emoji">❄️</div><div class="buy-info"><div class="buy-name">Excel 涼感控油防曬面霜（2026限定）</div><div class="buy-desc">冰沙質地，塗抹瞬間涼感，隱形毛孔＋強力吸油皮脂，百元妝前神物</div><div class="buy-tag">夏季限定</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🥶</div><div class="buy-info"><div class="buy-name">Saborino 早安面膜（超涼感薄荷雪松限定）</div><div class="buy-desc">60秒完成洗臉＋保養＋妝前打底，敷上臉「一秒被冰醒」，控油極佳</div><div class="buy-tag">限定香氣</div></div></div>
+<div class="buy-item"><div class="buy-emoji">💨</div><div class="buy-info"><div class="buy-name">Fujiko Ponk Ponk Powder 蓬蓬粉（葡萄柚限定）</div><div class="buy-desc">東京女生包包必備！頭皮敲兩下，油瀏海秒變蓬鬆，2026夏季版清爽葡萄柚香</div><div class="buy-tag">夏日限定香</div></div></div>
+<div class="buy-item"><div class="buy-emoji">👁️</div><div class="buy-info"><div class="buy-name">Ettusais 魔束捲翹睫毛底膏（薄荷冰藍限定色）</div><div class="buy-desc">冰藍色讓眼神純淨清透，防汗防皮脂超強配方，8月暴走睫毛絕不暈染</div><div class="buy-tag">限定色</div></div></div>
+</div>
+
+<h4 style="font-size:14px;font-weight:700;margin:20px 0 12px">🌡️ 隨身冷氣・身體防曬涼感小物</h4>
+<div class="buy-grid rv">
+<div class="buy-item"><div class="buy-emoji">🧊</div><div class="buy-info"><div class="buy-name">Bioré 吸冷劑冰敷身體貼片（強冷感限定）</div><div class="buy-desc">貼在脖子上，肌膚溫度即降3度，效果持續1小時！等於帶咗行動冷氣</div><div class="buy-tag">降溫3°C</div></div></div>
+<div class="buy-item"><div class="buy-emoji">☀️</div><div class="buy-info"><div class="buy-name">Skin Aqua Nexta 瞬間急凍防曬噴霧 SPF50+</div><div class="buy-desc">2026全新！霧化降溫技術，噴上即有冰鎮感，不泛白不黏膩，隨身補防曬首選</div><div class="buy-tag">2026新品</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🍊</div><div class="buy-info"><div class="buy-name">Gatsby Crazy Cool 瘋狂酷涼身體噴霧（柑橘薄荷）</div><div class="buy-desc">雖是男士品牌但日本女生人手一瓶！往衣服噴幾下，微風一吹結冰感！防中暑神器</div><div class="buy-tag">¥300有找</div></div></div>
+</div>
+
+<h4 style="font-size:14px;font-weight:700;margin:20px 0 12px">📍 藥妝店掃貨地圖</h4>
+<div class="tg rv">
+<div class="tc"><h4>💰 OS Drug（上野アメ橫）</h4><ul><li>唔裝潢、唔刷卡、唔退稅</li><li>但直接把退稅後價格當定價再打折！</li><li>保養品日常藥品全東京最平</li><li>📍 Day 6 阿美橫町內</li><li>⚡ 建議先掃保養品，再去大店補貨</li></ul></div>
+<div class="tc"><h4>🛍️ Welcia 新宿三丁目店</h4><ul><li>巨型藥妝＋精緻美妝複合店</li><li>環境寬敞舒服，退稅動線流暢</li><li>Excel、艾杜紗專櫃超大</li></ul></div>
+<div class="tc"><h4>🎀 Plaza（澀谷109/東急Plaza）</h4><ul><li>聚焦最新最流行開架彩妝</li><li>Fujiko、Excel、Canmake限定色最齊</li><li>可直接退稅</li></ul></div>
+</div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- 手信 -->
+<section id="hand"><div class="container">
+<div class="sl">🎁 手信</div><h2 class="st">唔要東京Banana！獨家手信攻略 🎀</h2><p class="sd">全部係你哋行程經過先買到嘅獨家嘢。</p>
+<div class="buy-grid rv">
+<div class="buy-item"><div class="buy-emoji">📺</div><div class="buy-info"><div class="buy-name">Fun Rising 限定精品</div><div class="buy-desc">富士電視台角色獨家<br>📍 Day 2 台場</div><div class="buy-tag">獨家</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🐱</div><div class="buy-info"><div class="buy-name">Chiikawa × 晴空塔 限定</div><div class="buy-desc">聯乘零食套裝、精品、吊飾<br>📍 Day 2 Solamachi Pop-up</div><div class="buy-tag">聯乘獨家</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🎀</div><div class="buy-info"><div class="buy-name">三麗鷗 Puroland 限定</div><div class="buy-desc">布甸狗/肉桂狗樂園獨家精品<br>📍 Day 3 園內</div><div class="buy-tag">樂園獨家</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🐱</div><div class="buy-info"><div class="buy-name">Chiikawa Park 限定周邊</div><div class="buy-desc">Sunshine City Annex獨家<br>📍 Day 5 池袋</div><div class="buy-tag">獨家</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🦖</div><div class="buy-info"><div class="buy-name">Chiikawa Pocket POP UP 限定</div><div class="buy-desc">恐龍＋愛麗絲主題極限量周邊<br>📍 Day 5 池袋PARCO 6F</div><div class="buy-tag">快閃限定</div></div></div>
+<div class="buy-item"><div class="buy-emoji">📚</div><div class="buy-info"><div class="buy-name">Animate 日本限定動漫周邊</div><div class="buy-desc">BL漫畫、乙女遊戲周邊<br>📍 Day 5 池袋Animate</div><div class="buy-tag">日本限定</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🎰</div><div class="buy-info"><div class="buy-name">扭蛋 / 一番賞</div><div class="buy-desc">便利店/秋葉原限定一番賞<br>📍 Day 6 秋葉原</div><div class="buy-tag">限定</div></div></div>
+<div class="buy-item"><div class="buy-emoji">📝</div><div class="buy-info"><div class="buy-name">Loft 文具精品</div><div class="buy-desc">和紙膠帶、限定手帳、特色文具<br>📍 Day 5 池袋Loft</div><div class="buy-tag">文青禮物</div></div></div>
+<div class="buy-item"><div class="buy-emoji">🍜</div><div class="buy-info"><div class="buy-name">AFURI 柚子鹽拉麵套裝</div><div class="buy-desc">人氣拉麵店自家袋裝，返屋企煮<br>📍 AFURI各分店</div><div class="buy-tag">食極不忘</div></div></div>
+<div class="buy-item"><div class="buy-emoji">💊</div><div class="buy-info"><div class="buy-name">藥妝限定品當手信</div><div class="buy-desc">夏季限定涼感面膜、蓬蓬粉等<br>📍 藥妝店</div><div class="buy-tag">實用靚禮</div></div></div>
+</div>
+</div></section>
+
+<div class="div"></div>
+
+<!-- 美食 -->
+<section id="food"><div class="container">
+<div class="sl">🍜 美食推薦</div><h2 class="st">唔食魚都食到飽！ 🤤</h2><p class="sd">全部係非海鮮選擇。</p>
+<div class="food-grid rv">
+<div class="food-card"><h4>🍜 拉麵</h4><div class="fc-sub">最安全嘅選擇</div><div class="food-item"><span class="food-name">らぁ麺や 嶋</span><span class="food-detail">西新宿｜東京第一醬油拉麵</span></div><div class="food-item"><span class="food-name">銀座 篝</span><span class="food-detail">銀座｜濃郁雞白湯如濃湯</span></div><div class="food-item"><span class="food-name">入鹿TOKYO</span><span class="food-detail">六本木｜牛肝菌松露雞白湯</span></div><div class="food-item"><span class="food-name">AFURI</span><span class="food-detail">原宿｜柚子鹽清爽無負擔</span></div><div class="food-item"><span class="food-name">大砲拉麵</span><span class="food-detail">新大久保｜濃郁豚骨</span></div></div>
+<div class="food-card"><h4>🥩 燒肉</h4><div class="fc-sub">100%冇魚！</div><div class="food-item"><span class="food-name">Yakiniku ABURU</span><span class="food-detail">池袋｜Day 5 晚餐 🌟</span></div><div class="food-item"><span class="food-name">原宿焼肉KINTAN</span><span class="food-detail">原宿｜網紅級黑毛和牛</span></div><div class="food-item"><span class="food-name">六歌仙</span><span class="food-detail">新宿｜黑毛和牛放題CP值高</span></div><div class="food-item"><span class="food-name">焼肉 鴨to葱</span><span class="food-detail">御徒町｜鴨肉拉麵超正</span></div></div>
+<div class="food-card"><h4>🥩 牛扒/炸牛扒</h4><div class="fc-sub">肉食天堂</div><div class="food-item"><span class="food-name">挽肉と米</span><span class="food-detail">澀谷/吉祥寺｜炭火漢堡扒始祖</span></div><div class="food-item"><span class="food-name">牛かつ もと村</span><span class="food-detail">歌舞伎町｜石板DIY現炙炸牛排</span></div><div class="food-item"><span class="food-name">牛舌的檸檬</span><span class="food-detail">新宿｜厚切牛舌配檸檬</span></div><div class="food-item"><span class="food-name">極味や</span><span class="food-detail">澀谷Parco｜鐵板生漢堡肉</span></div></div>
+<div class="food-card"><h4>🍛 咖喱 / 洋食</h4><div class="fc-sub">百搭唔伏</div><div class="food-item"><span class="food-name">Soup Stock Tokyo</span><span class="food-detail">多處｜20代OL一人最愛</span></div><div class="food-item"><span class="food-name">CoCo壱番屋</span><span class="food-detail">全區連鎖｜自選辣度配料</span></div><div class="food-item"><span class="food-name">喫茶YOU</span><span class="food-detail">銀座｜昭和風滑嫩蛋包飯</span></div><div class="food-item"><span class="food-name">松屋/吉野家</span><span class="food-detail">全區｜牛丼¥400有找</span></div></div>
+<div class="food-card"><h4>🍜 烏冬 / 壽喜燒</h4><div class="fc-sub">精緻體驗</div><div class="food-item"><span class="food-name">五代目 花山烏冬</span><span class="food-detail">銀座｜寬5cm平川烏冬超震撼</span></div><div class="food-item"><span class="food-name">人形町今半</span><span class="food-detail">人形町｜頂級和牛壽喜燒</span></div><div class="food-item"><span class="food-name">玉ひで</span><span class="food-detail">人形町｜百年親子丼名店</span></div></div>
+<div class="food-card"><h4>🏪 便利店必試</h4><div class="fc-sub">唔好睇小！</div><div class="food-item"><span class="food-name">唐揚げ</span><span class="food-detail">Lawson即炸超正 🍗</span></div><div class="food-item"><span class="food-name">飯糰</span><span class="food-detail">明太子/梅/炸雞避開鮭魚</span></div><div class="food-item"><span class="food-name">日清期間限定杯麵</span><span class="food-detail">每季唔同口味</span></div></div>
+</div></div></section>
+
+<div class="div"></div>
+
+<!-- 甜品Cafe -->
+<section id="cafe"><div class="container">
+<div class="sl">🍰 甜品 &amp; Cafe</div><h2 class="st">東京20代女生最愛甜品地圖 🧁</h2>
+<div class="rl-grid rv">
+<div class="rl"><h4>🍩 I'm doughtnut ?（中目黑/澀谷）</h4><div class="rl-sub">風靡東京「生冬甩」始祖，雲朵般空氣感微Q</div></div>
+<div class="rl"><h4>🥐 GARIGUETTE（表參道）</h4><div class="rl-sub">法式千層酥圓餅，現點現做，打卡超吸睛</div></div>
+<div class="rl"><h4>🥞 bills（表參道）</h4><div class="rl-sub">世界第一舒芙蕾鬆餅，陽光玻璃屋極美</div></div>
+<div class="rl"><h4>🧁 HARBS（新宿/有樂町）</h4><div class="rl-sub">招牌水果千層蛋糕，20代雷打不動首選</div></div>
+<div class="rl"><h4>🍰 Flippers（下北澤）</h4><div class="rl-sub">奇蹟舒芙蕾鬆餅，入口即化，季節限定極受歡迎</div></div>
+<div class="rl"><h4>🍮 Qu'il Fait Bon（銀座/青山）</h4><div class="rl-sub">殿堂級水果塔，季節水果排得像寶石</div></div>
+<div class="rl"><h4>🍵 The Matcha Tokyo（表參道）</h4><div class="rl-sub">有機抹茶專門店，現刷抹茶配漸層Latte</div></div>
+<div class="rl"><h4>🌿 Aoyama Flower Market Tea House（南青山）</h4><div class="rl-sub">置身真實溫室花園下午茶，玫瑰芭菲必點</div></div>
+<div class="rl"><h4>☕ Chavaty（表參道）</h4><div class="rl-sub">精品奶茶與現烤司康，瓶裝奶茶極簡美感</div></div>
+<div class="rl"><h4>🫖 Shiseido Parlour（銀座）</h4><div class="rl-sub">資生堂傳統聖代，復古奢華草莓芭菲</div></div>
+<div class="rl"><h4>☕ Café de L'ambre（銀座）</h4><div class="rl-sub">昭和琥珀咖啡館，琥珀女王咖啡</div></div>
+<div class="rl"><h4>☕ Fuglen Tokyo（代官山）</h4><div class="rl-sub">挪威復古風咖啡，白天café夜晚bar</div></div>
+<div class="rl"><h4>🦊 Cafe Kitsuné（青山）</h4><div class="rl-sub">時尚品牌小狐狸咖啡，狐狸餅乾配Latte</div></div>
+<div class="rl"><h4>☕ Blue Bottle（清澄白河）</h4><div class="rl-sub">旗艦店工業風＋限定手沖，文青標配</div></div>
+<div class="rl"><h4>🧁 MERCER BRUNCH（六本木）</h4><div class="rl-sub">法式吐司配高顏值早午餐，露台位時尚女孩標配</div></div>
+<div class="rl"><h4>🍭 Ladurée（銀座）</h4><div class="rl-sub">法式夢幻馬卡龍，極致少女心天花板</div></div>
+<div class="rl"><h4>🍬 Totti Candy Factory（原宿）</h4><div class="rl-sub">巨大彩色棉花糖，社交媒體熱度依然高</div></div>
+<div class="rl"><h4>🍰 Glaciel（表參道）</h4><div class="rl-sub">瓢蟲刺蝟造型冰淇淋蛋糕，精緻度爆表</div></div>
+</div></div></section>
+
+<div class="div"></div>
+
+<!-- 女裝品牌 -->
+<section id="brand"><div class="container">
+<div class="sl">👗 女裝品牌</div><h2 class="st">東京20代女生激推品牌30選 🛍️</h2><p class="sd">Y2K、大人慵懶風、精緻甜酷，池袋/原宿/澀谷都有。</p>
+<div class="rl-grid rv">
+<div class="rl"><h4>🎀 snidel</h4><div class="rl-sub">純欲甜美大人服代表，修身連身裙斬男天花板</div></div>
+<div class="rl"><h4>🌿 Mila Owen</h4><div class="rl-sub">法式慵懶＋都會幹練，20代後半上班族首選</div></div>
+<div class="rl"><h4>🖤 FRAY I.D</h4><div class="rl-sub">前衛線條感通勤裝，帶微熟小性感</div></div>
+<div class="rl"><h4>🌸 Lily Brown</h4><div class="rl-sub">復古蕾絲＋摩登色彩，獨特風格</div></div>
+<div class="rl"><h4>👖 Moussy</h4><div class="rl-sub">日系神級牛仔褲＋酷颯辣妹風</div></div>
+<div class="rl"><h4>🔥 SLY</h4><div class="rl-sub">Y2K叛逆大膽色彩，Threads出鏡率極高</div></div>
+<div class="rl"><h4>⬛ EMODA</h4><div class="rl-sub">摩登黑色系高腰顯身材，高冷御姐風</div></div>
+<div class="rl"><h4>💎 REDYAZEL</h4><div class="rl-sub">復古配色拼接連身裙，辨識度極高</div></div>
+<div class="rl"><h4>🍬 dazzlin</h4><div class="rl-sub">甜美美式復古少女風，約會必勝</div></div>
+<div class="rl"><h4>🌷 COCO DEAL</h4><div class="rl-sub">時尚實穿兼具，碎花裙版型極絕</div></div>
+<div class="rl"><h4>🌙 Mystic</h4><div class="rl-sub">日系溫柔層次疊穿，透明感少女最愛</div></div>
+<div class="rl"><h4>🦋 Chico</h4><div class="rl-sub">純欲露肩綁帶針織衫，20代前半熱度極高</div></div>
+<div class="rl"><h4>🏖️ Ungrid</h4><div class="rl-sub">美式休閒波西米亞慵懶風</div></div>
+<div class="rl"><h4>🐻 Titty&Co.</h4><div class="rl-sub">經典甜美學院風，蝴蝶結百褶裙滿載</div></div>
+<div class="rl"><h4>🎈 Merry Jenny</h4><div class="rl-sub">童趣小熊荷葉邊夢幻少女風</div></div>
+<div class="rl"><h4>🌸 LOWRYS FARM</h4><div class="rl-sub">高CP值國民女裝，簡約百搭衣櫃基底</div></div>
+<div class="rl"><h4>🍀 Kastane</h4><div class="rl-sub">美式休閒日系文青混搭，舒適時髦</div></div>
+<div class="rl"><h4>🫧 Amiur</h4><div class="rl-sub">淡色女子風，極致溫柔米灰色系</div></div>
+<div class="rl"><h4>🖤 MURUA</h4><div class="rl-sub">大膽幾何剪裁中性混搭</div></div>
+<div class="rl"><h4>✨ EVRIS</h4><div class="rl-sub">街頭復古牛仔寬鬆帥氣感</div></div>
+<div class="rl"><h4>🎀 Rienda</h4><div class="rl-sub">極致女人味修身包臀微性感</div></div>
+<div class="rl"><h4>💎 LagunaMoon</h4><div class="rl-sub">高質感禮服裙，參加派對首選</div></div>
+<div class="rl"><h4>🌸 Noela</h4><div class="rl-sub">浪漫花卉法式優雅高質感甜美</div></div>
+<div class="rl"><h4>🏢 United Tokyo</h4><div class="rl-sub">全日本製高質感極簡立體剪裁</div></div>
+<div class="rl"><h4>🎭 Jouetie</h4><div class="rl-sub">街頭搖滾少女風混搭</div></div>
+<div class="rl"><h4>🪵 Ameri Vintage</h4><div class="rl-sub">古著感設計師品牌，不撞衫大膽高單價</div></div>
+<div class="rl"><h4>🫶 Apuweiser-riche</h4><div class="rl-sub">好女孩天花板，精緻通勤</div></div>
+<div class="rl"><h4>🌼 Select Moca</h4><div class="rl-sub">大地色系極簡性冷淡風，IG博主人手一件</div></div>
+<div class="rl"><h4>☁️ GRL</h4><div class="rl-sub">日本平價女裝天花板，溫柔櫻花妹風</div></div>
+</div></div></section>
+
+<div class="div"></div>
+
+<!-- 100円必買 -->
+<section id="yen100"><div class="container">
+<div class="sl">🏪 100円必買神物</div><h2 class="st">Seria / Daiso / Can★Do 精選30樣 🛒</h2>
+<div class="rl-grid rv">
+<div class="rl"><h4>🧊 Daiso 矽膠面罩</h4><div class="rl-sub">敷面膜時套外面防蒸發，櫻花妹無限回購</div></div>
+<div class="rl"><h4>🧴 Daiso 粉撲刷具清洗劑</h4><div class="rl-sub">平價大碗洗得超乾淨，美妝博主囤貨王</div></div>
+<div class="rl"><h4>📦 Seria 微縮化妝品收納架</h4><div class="rl-sub">極簡透明設計，剛好放單色眼影唇膏</div></div>
+<div class="rl"><h4>🍬 Daiso 壓縮面膜紙</h4><div class="rl-sub">糖果包裝，倒化妝水一秒變面膜，旅行必備</div></div>
+<div class="rl"><h4>🧻 Can Do 一次性洗臉巾</h4><div class="rl-sub">便攜版乾淨衛生，精緻護膚必備</div></div>
+<div class="rl"><h4>💫 Seria 髮圈收納扣</h4><div class="rl-sub">一秒收納凌亂髮圈，掛包包上超方便</div></div>
+<div class="rl"><h4>🧖‍♀️ Daiso 乾髮帽</h4><div class="rl-sub">吸水力極強，長髮吹頭省時神器</div></div>
+<div class="rl"><h4>👁️ Daiso 睫毛膏雨衣</h4><div class="rl-sub">百円讓開架睫毛膏一整天不暈染</div></div>
+<div class="rl"><h4>🧈 Seria 奶油切割收納盒</h4><div class="rl-sub">壓下去切成5g小塊，治癒又方便</div></div>
+<div class="rl"><h4>🥚 Daiso 溫泉蛋製作器</h4><div class="rl-sub">微波爐叮一下，完美輕食溫泉蛋</div></div>
+<div class="rl"><h4>🫧 Daiso 廚房除油污濕紙巾</h4><div class="rl-sub">含小蘇打，擦灶台極乾淨</div></div>
+<div class="rl"><h4>☁️ Seria 雲朵吸水海綿</h4><div class="rl-sub">放洗手台邊，吸水力驚人造型可愛</div></div>
+<div class="rl"><h4>🧄 Daiso 剝蒜器</h4><div class="rl-sub">矽膠管滾幾下蒜皮自動剝落</div></div>
+<div class="rl"><h4>🪥 Can Do 擠牙膏神器</h4><div class="rl-sub">滾輪式徹底擠乾淨，強迫症福音</div></div>
+<div class="rl"><h4>🔑 Seria 磁吸鑰匙掛鉤</h4><div class="rl-sub">貼玄關門後，鑰匙一貼上去</div></div>
+<div class="rl"><h4>🧸 Seria 盲盒展示透明保護袋</h4><div class="rl-sub">完美契合Labubu、Sonny Angel，防塵掛包包</div></div>
+<div class="rl"><h4>🎴 Seria 偶像小卡保護套</h4><div class="rl-sub">極厚硬版，追星女孩激推透光度極高</div></div>
+<div class="rl"><h4>📸 Daiso 拍照背景紙</h4><div class="rl-sub">大理石/木紋，拍化妝品甜點秒變高級</div></div>
+<div class="rl"><h4>🪟 Seria 迷你丙烯展示架</h4><div class="rl-sub">展示追星周邊或盲盒，透明度極高</div></div>
+<div class="rl"><h4>💡 Daiso LED小燈串</h4><div class="rl-sub">房間佈置拍氛圍感照片必備</div></div>
+<div class="rl"><h4>📱 Daiso 手機掛繩夾片</h4><div class="rl-sub">2026全亞洲大爆紅！塞進手機殼就能斜背</div></div>
+<div class="rl"><h4>🔌 Seria 矽膠電線收納帶</h4><div class="rl-sub">像小皮帶，收納充電線極好看</div></div>
+<div class="rl"><h4>💊 Daiso 隨身藥品分裝盒</h4><div class="rl-sub">多格密封，旅行帶耳環項鍊不打結</div></div>
+<div class="rl"><h4>🧴 Can Do 噴霧式卡片型分裝瓶</h4><div class="rl-sub">裝酒精/化妝水，扁平設計省空間</div></div>
+<div class="rl"><h4>👟 Daiso 鞋子防塵收納袋</h4><div class="rl-sub">出差旅行裝換洗鞋子，乾淨衛生</div></div>
+<div class="rl"><h4>🎨 Seria 復古油畫風紙膠帶</h4><div class="rl-sub">設計感不輸Mt，手帳女孩瘋掃</div></div>
+<div class="rl"><h4>🖊️ Daiso 霧面透明原子筆</h4><div class="rl-sub">無印平替，書寫流暢極簡好看</div></div>
+<div class="rl"><h4>🏷️ Seria 莫蘭迪色標籤貼紙</h4><div class="rl-sub">整理房間標籤顏值極高</div></div>
+<div class="rl"><h4>📌 Daiso 壓縮感極簡便簽</h4><div class="rl-sub">黏性好配色高級，OL辦公桌常備</div></div>
+<div class="rl"><h4>🐱 Seria 造型小夾子</h4><div class="rl-sub">貓咪/透明系，夾零食袋文件隨手可愛</div></div>
+</div></div></section>
 
 <div class="div"></div>
 
 <!-- WEATHER -->
 <section id="weather"><div class="container">
-<div class="sl">🌡️ 天氣</div><h2 class="st">8月下旬東京天氣 🌞</h2><p class="sd">又熱又濕又曬，同香港8月差唔多。</p>
+<div class="sl">🌡️ 天氣</div><h2 class="st">8月下旬東京天氣 🌞</h2>
 <div class="wx-grid rv">
 <div class="wx"><div class="wx-i">🌡️</div><div class="wx-v">27–33°C</div><div class="wx-l">氣溫（體感36–38°C）</div></div>
 <div class="wx"><div class="wx-i">💧</div><div class="wx-v">70–85%</div><div class="wx-l">濕度（非常焗）</div></div>
 <div class="wx"><div class="wx-i">☀️</div><div class="wx-v">UV 極強</div><div class="wx-l">10:00–15:00最曬</div></div>
 <div class="wx"><div class="wx-i">🌅</div><div class="wx-v">04:50/18:30</div><div class="wx-l">日出 / 日落</div></div>
-</div>
-</div></section>
-
-<!-- COLOR STYLE -->
-<section id="style"><div class="container">
-<div class="sl">🎨 穿搭顏色建議</div>
-<h2 class="st">每日配色方案 👗</h2>
-<p class="sd">輕便＋透氣＋防曬＋室內抗凍。</p>
-<div class="cg rv">
-<div class="cc"><h4>📺 Day 2 台場 + 晴空塔</h4><div class="sub">輕鬆活力，台場行完再衝晴空塔</div>
-<div class="sw"><div class="swc" style="background:#87CEEB"><span class="swc-l">天藍</span></div><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">白色</span></div><div class="swc" style="background:#FFB347"><span class="swc-l">活力橙</span></div><div class="swc" style="background:#F5E6CC"><span class="swc-l">奶茶</span></div></div>
-<ul><li>明亮輕便，逛活動掃貨最啱</li><li>白Tee + 牛仔短褲＋波鞋</li><li>台場海邊＋晴空塔都影到靚相</li></ul></div>
-<div class="cc"><h4>🎀 Day 3 Sanrio日</h4><div class="sub">角色主題配搭 ✅ 已準備</div>
-<div class="sw"><div class="swc" style="background:#FFD166"><span class="swc-l">布甸黃</span></div><div class="swc" style="background:#D4A020"><span class="swc-l">布甸棕</span></div><div class="swc" style="background:#FFF2C8"><span class="swc-l">奶油</span></div></div>
-<ul><li><strong>🍮 Coco：布甸狗主題 ✅</strong></li></ul>
-<div class="sw" style="margin-top:8px"><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">白色</span></div><div class="swc" style="background:#B0D4F1"><span class="swc-l">淺藍</span></div><div class="swc" style="background:#E8F0FE"><span class="swc-l">冰藍</span></div></div>
-<ul><li><strong>🐶 Yan：肉桂狗主題 ✅</strong></li></ul></div>
-<div class="cc"><h4>🎆 Day 4 熱海花火</h4><div class="sub">👗 白色長裙 ✅ 已準備</div>
-<div class="sw"><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">白色</span></div><div class="swc" style="background:#F5F5F5"><span class="swc-l">米白</span></div><div class="swc" style="background:#D4AF37"><span class="swc-l">金色配件</span></div></div>
-<ul><li><strong>👗 白色長裙喺花火下超夢幻！ ✅</strong></li><li>金色配飾點綴</li><li>帶薄外套，夜晚海邊有風</li></ul></div>
-<div class="cc"><h4>⛩️ Day 5 淺草 + 池袋</h4><div class="sub">端莊淺草 → 輕鬆Shopping</div>
-<div class="sw"><div class="swc" style="background:#FFF;border:1px solid #ddd"><span class="swc-l">全白</span></div><div class="swc" style="background:#F5F5DC"><span class="swc-l">米白</span></div><div class="swc" style="background:#8FBC8F"><span class="swc-l">鼠尾草</span></div><div class="swc" style="background:#BC8F8F"><span class="swc-l">藕粉</span></div></div>
-<ul><li>淺草寺：端莊唔好太暴露</li><li>之後去池袋Shopping輕便啲</li><li>燒肉晚餐唔怕著太casual</li></ul></div>
-<div class="cc"><h4>🐼 Day 6 動物園 + Shopping</h4><div class="sub">最後一日輕鬆舒適 😌</div>
-<div class="sw"><div class="swc" style="background:#87CEEB"><span class="swc-l">天空藍</span></div><div class="swc" style="background:#98FB98"><span class="swc-l">薄荷綠</span></div><div class="swc" style="background:#FFE4B5"><span class="swc-l">暖杏</span></div><div class="swc" style="background:#FFB347"><span class="swc-l">活力橙</span></div></div>
-<ul><li>明亮清新色</li><li>帶深色大袋裝戰利品</li></ul></div>
-</div>
-<h4 style="font-size:14px;font-weight:700;margin:24px 0 10px">👟 通用Tips</h4>
-<div class="cg rv">
-<div class="cc"><h4>👚 上裝</h4><ul><li>寬鬆棉質/亞麻T恤</li><li>吊帶背心 + 薄外套（抗冷氣）</li><li>避免低胸露肩（入寺廟）</li></ul></div>
-<div class="cc"><h4>👟 鞋 &amp; 配件</h4><ul><li>舒適波鞋（每日行1.5萬步！）</li><li>方便穿脫（要脫鞋）</li><li>防曬帽、太陽眼鏡必備</li></ul></div>
-<div class="cc"><h4>💄 妝容抗暑</h4><ul><li>定妝噴霧 + 吸油紙</li><li>防曬霜（到埗藥妝店買）</li><li>涼感紙巾 → Donki買</li></ul></div>
-</div>
-</div></section>
-
-<div class="div"></div>
-
-<!-- PACKING -->
-<section id="pack"><div class="container">
-<div class="sl">🧳 行李準備</div><h2 class="st">打包清單 ✅</h2><p class="sd">打 ✓ 確認已放入行李箱，狀態會自動保存。</p>
-<div class="cbg rv">
-<h4>👚 衣物</h4>
-<label class="ci"><input type="checkbox" class="ck" data-key="p1"><span class="ct">棉質T恤 x4–5</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p2"><span class="ct">薄外套 / 防曬衫 x1</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p3"><span class="ct">吊帶背心 x1</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p4"><span class="ct">寬鬆短褲 / 七分褲 x2</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p5"><span class="ct">闊腳褲 x1</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p5b"><span class="ct">👗 白色長裙 x1（Day 4 花火穿）✅ 已準備</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p6"><span class="ct">舒適波鞋 👟</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p7"><span class="ct">涼鞋 x1</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p8"><span class="ct">船襪 / 短襪 x2</span></label>
-</div>
-<div class="cbg rv">
-<h4>🎀 配件</h4>
-<label class="ci"><input type="checkbox" class="ck" data-key="p10"><span class="ct">防曬帽 / 遮 🧢</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p11"><span class="ct">太陽眼鏡 🕶️</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p12"><span class="ct">薄圍巾 / 披肩</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p13"><span class="ct">迷你手提袋 👜</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p13b"><span class="ct">金色配飾（耳環/頸鏈，Day 4 搭白色長裙用）✨</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p13c"><span class="ct">🍮 Pompompurin周邊（Coco Day 3）✅ 已準備</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p13d"><span class="ct">🐶 Cinnamoroll周邊（Yan Day 3）✅ 已準備</span></label>
-</div>
-<div class="cbg rv">
-<h4>💄 妝容 &amp; 護膚</h4>
-<label class="ci"><input type="checkbox" class="ck" data-key="p20"><span class="ct">定妝噴霧 💦</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p21"><span class="ct">吸油紙</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p22"><span class="ct">防曬霜 ☀️</span></label>
-</div>
-<div class="cbg rv">
-<h4>🔌 電子 &amp; 實用</h4>
-<label class="ci"><input type="checkbox" class="ck" data-key="p30"><span class="ct">充電寶 🔋</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p31"><span class="ct">手機充電線</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p33"><span class="ct">野餐墊（Day 4 花火用）🧺</span></label>
-<label class="ci"><input type="checkbox" class="ck" data-key="p34"><span class="ct">小風扇 🌀</span></label>
-</div>
-</div></section>
+</div></div></section>
 
 <div class="div"></div>
 
 <!-- CHECKLIST -->
 <section id="ck"><div class="container">
-<div class="sl">📋 出發前</div><h2 class="st">出發前Checklist 📝</h2>
+<div class="sl">📋 Checklist</div><h2 class="st">出發前Checklist 📝</h2>
 <div class="cbg rv">
-<h4>🔴 急（即刻處理）</h4>
-<label class="ci"><input type="checkbox" class="ck" data-key="t1"><span class="ct">台場 Fun Rising 8/22 門票 — 現場買 ¥2,800 + 9am LINE排隊</span></label>
+<h4>🔴 即刻處理</h4>
+<label class="ci"><input type="checkbox" class="ck" data-key="t1"><span class="ct">台場 Fun Rising 8/22 — 現場買 ¥2,800 + 9am LINE排隊</span></label>
+<label class="ci"><input type="checkbox" class="ck" data-key="t2"><span class="ct">PUNYUS 晴空塔店 8/22 晚 — 順路去唔使額外安排</span></label>
 </div>
 <div class="cbg rv">
 <h4>✅ 已搞掂</h4>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Chiikawa × 晴空塔 8/22 活動門票 19:30 ✅ 已買</span></label>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Chiikawa Park 8/25 門票 16:00 ✅ 已買</span></label>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Chiikawa × 晴空塔 8/22 活動門票 19:30 ✅</span></label>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Chiikawa Park 8/25 門票 16:00 ✅</span></label>
 <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">三麗鷗彩虹樂園 8/23 門票 ✅</span></label>
 <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">熱海一日遊團 8/24 ✅</span></label>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Day 3 Dress Code（Coco布甸狗 / Yan肉桂狗）✅ 已準備</span></label>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Day 4 Dress Code（白色長裙）✅ 已準備</span></label>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">酒店已訂（海茵娜淺草橋，6晚） ✅</span></label>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Day 3 Dress Code（布甸狗/肉桂狗）✅</span></label>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Day 4 Dress Code（白色長裙）✅</span></label>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">酒店已訂（海茵娜淺草橋，6晚）✅</span></label>
 <label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">Apple Pay Suica ✅</span></label>
-<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">機場交通：Access特急直達淺草橋 ¥1,177 ✅</span></label>
-</div>
-</div></section>
+<label class="ci"><input type="checkbox" class="ck" checked disabled><span class="ct done">機場交通 Access特急直達淺草橋 ¥1,177 ✅</span></label>
+</div></div></section>
 
 <div class="div"></div>
 
 <!-- TIPS -->
 <section id="tips"><div class="container">
-<div class="sl">💡 實用提醒</div><h2 class="st">旅程小Tips 💪</h2>
+<div class="sl">💡 Tips</div><h2 class="st">旅程小Tips 💪</h2>
 <div class="tg rv">
-<div class="tc"><h4>🚃 交通</h4><ul><li>全程 Apple Pay Suica 拍卡</li><li>Access特急直達淺草橋 ¥1,177</li><li>台場：百合海鷗號（Suica可用）</li><li>晴空塔：半藏門線押上站直達</li></ul></div>
-<div class="tc"><h4>🍽️ 飲食（唔食魚！）</h4><ul><li>搜「洋食」「肉」「ラーメン」「カレー」</li><li>拉麵、咖喱、燒肉一定冇魚</li><li>炸豬排、牛丼都係安全選擇</li><li>便利店飯糰留意餡料</li></ul></div>
-<div class="tc"><h4>📱 實用App</h4><ul><li>Google Maps — 搵路＋搵餐廳</li><li>LINE App — Day 2 9am排隊Fun Rising</li><li>Suica App — 查餘額</li></ul></div>
-<div class="tc"><h4>🧊 防暑</h4><ul><li>涼感紙巾、面膜 → Day 1 Donki買</li><li>日本防曬霜品質好好</li><li>隨處有自動售賣機</li><li>室內冷氣超凍，薄外套必備</li></ul></div>
-</div>
-</div></section>
+<div class="tc"><h4>🚃 交通</h4><ul><li>全程 Apple Pay Suica 拍卡</li><li>Access特急直達淺草橋 ¥1,177</li><li>台場：百合海鷗號</li><li>晴空塔：半藏門線押上站</li></ul></div>
+<div class="tc"><h4>🍽️ 唔食魚Tips</h4><ul><li>搜「洋食」「肉」「ラーメン」「カレー」</li><li>拉麵、咖喱、燒肉一定冇魚</li><li>便利店飯糰留意餡料</li><li>Chiikawa Park場內只收電子支付</li></ul></div>
+<div class="tc"><h4>📱 實用App</h4><ul><li>Google Maps — 搵路搵餐廳</li><li>LINE App — Day 2 9am排隊Fun Rising</li><li>Suica App — 查餘額</li><li>Hot Pepper — 預約餐廳</li></ul></div>
+<div class="tc"><h4>🧊 防暑</h4><ul><li>涼感紙巾＋面膜 → Day 1 Donki買</li><li>Bioré冰敷貼片 → 藥妝店搶</li><li>Gatsby涼感噴霧 → 衣服噴幾下即降溫</li><li>室內冷氣超凍，薄外套必備</li></ul></div>
+</div></div></section>
 
 </main>
 
